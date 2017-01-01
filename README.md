@@ -29,3 +29,4 @@ TODO:
    * More languages
  * Plattform specific client recommendations (i.e. yaxim on Android, ChatSecure on iOS, Gajim on Windows)
  * "Edit" mode to manually create invitation links
+ * Get rid of bootstrap
