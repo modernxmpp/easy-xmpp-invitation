@@ -47,3 +47,13 @@ For the JID trump@xmpp.example, it will create the following page ([live example
    * Option to switch plattform dynamically
  * "Edit" mode to manually create invitation links
  * Get rid of bootstrap
+
+## Inspiration
+
+This project was inspired by
+[mod_invite](https://modules.prosody.im/mod_invite.html) and
+[Conversations'](https://conversations.im/) contact sharing page.
+
+## License
+
+T.B.D.
