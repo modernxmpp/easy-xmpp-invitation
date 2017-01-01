@@ -25,8 +25,9 @@ Design decisions:
 TODO:
 
  * I18N / Translation
-   * Browser language auto-detection
+   * Browser language auto-detection, drop-down / language list for manual override
    * More languages
  * Plattform specific client recommendations (i.e. yaxim on Android, ChatSecure on iOS, Gajim on Windows)
+   * Option to switch plattform dynamically
  * "Edit" mode to manually create invitation links
  * Get rid of bootstrap
