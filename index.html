@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1, user-scalable=0" name="viewport">
+  <script src="./i18n-text.min.js"></script>
+
+  <title>XMPP Invitation</title>
+  <script>
+// load i18n and perform translation
+var i18n = new I18nText({path: 'lang'})
+i18n.once(I18nText.EVT_LOCALE_CHANGE, function (data) {
+  translate_ui();
+})
+i18n.setLocale('en');
+
+// i18n key prefix for MUC ("muc.") or 1:1 chat ("chat.")
+var key_prefix;
+var display_data = null;
+
+function show_clients(client_array) {
+  var list = document.getElementById('client_list');
+  for (var id = 0; id < client_array.length; id++) {
+    var item = document.createElement('li');
+    item.innerHTML = client_array[id];
+    list.appendChild(item);
+  }
+}
+
+function load_clients() {
+  url = "clients.json";
+  var request = new XMLHttpRequest()
+  request.open('GET', url)
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) {
+      if (request.status == 200 || (isLocalFileRequest(url) && request.responseText.length > 0)) {
+        show_clients(JSON.parse(request.responseText))
+      }
+    }
+  }
+  request.send(null)
+}
+
+function load_hash() {
+  var muc = false;
+  key_prefix = "chat.";
+  var jid = window.location.search || window.location.hash;
+  jid = decodeURIComponent(jid.substring(jid.indexOf('#') + 1, jid.length));
+  if (jid.search("\\?join") >= 0) {
+    muc = true;
+    key_prefix = "muc.";
+  }
+
+  // TODO: proper error checking / display / Creation of invitations
+  if (jid.search("@") <= 0) return {jid:"", name: "Somebody"};
+
+  var name = jid.split("@")[0];
+  name = name.charAt(0).toUpperCase() + name.slice(1);
+  return {jid: jid, name: name};
+}
+
+function translate_ui() {
+  // translation
+  document.title = i18n.text(key_prefix + 'title',  display_data);
+  // MUC/chat specific
+  ['heading', 'intro', 'button'].forEach(function(id) {
+    document.getElementById(id).innerHTML = i18n.text(key_prefix + id, display_data);
+  });
+  // and agnostic
+  ['clients', 'recommend', 'checkfulllist', 'xmppis'].forEach(function(id) {
+    document.getElementById(id).innerHTML = i18n.text(id, display_data);
+  });
+}
+
+function rehash() {
+  display_data = load_hash();
+  document.getElementById('button').href = "xmpp:" + display_data.jid;
+  document.getElementById('url_in').value = "xmpp:" + display_data.jid;
+  translate_ui();
+}
+
+function load_done() {
+  // functionality
+  load_clients();
+  rehash();
+  window.addEventListener("hashchange", rehash, false);
+}
+  </script>
+  <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+  <link href="stylesheets/i.css" rel="stylesheet">
+  <style>
+    .main {
+      padding-top: 0px;
+      max-width: 600px;
+      width: 90%;
+      margin: 0 auto;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body onload="load_done();">
+  <div class="main">
+    <noscript><h3>You need JavaScript to follow the invitation.</h3></noscript>
+      <h3 class="text-center" id="heading"></h3>
+    <p class="lead text-center" id="intro"></p>
+    <p class="text-center"><a class="btn btn-primary" id="button"></a></p>
+    <input type="url" class="form-control text-center" id="url_in" size=50 onfocus="this.select();"></input>
+    <p class="lead text-center" id="clients"></p>
+    <p class="lead" id="recommend"></p>
+
+    <ul class="lead" id="client_list"></ul>
+
+    <p class="lead" id="checkfulllist"></p>
+    <p id="xmppis"></p>
+  </div>
+</body>
+</html>
