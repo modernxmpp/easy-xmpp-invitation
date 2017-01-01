@@ -1,8 +1,11 @@
 # Easy XMPP Invitation Landing Page
 
-This is an XMPP invitation landing page you can host yourself. Use it to send
-XMPP invitations (contact or chat room) to people who do not have an XMPP
-client yet.
+This is an XMPP invitation landing page that client developers or XMPP server
+admins can host on their servers. It allows users to send XMPP invitations
+(contacts or chat rooms) to people who do not have an XMPP client yet. This is
+part of the [Easy XMPP](https://wiki.xmpp.org/web/Easy_XMPP) initiative to
+improve the ["first contact"](https://wiki.xmpp.org/web/Easy_Onboarding#First_Contact)
+experience.
 
 For the JID trump@xmpp.example, it will create the following page ([live example](https://yax.im/i/#trump@xmpp.example)):
 
