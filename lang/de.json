@@ -1,0 +1,21 @@
+{
+  "chat": {
+    "title": "Einladung von {{name}}",
+    "heading": "{{name}} hat Sie zum Chatten eingeladen",
+    "intro": "Fügen Sie {{name}} zu Ihren Kontakten hinzu, indem Sie hier klicken:",
+    "button": "{{name}} hinzufügen",
+    "":""
+  },
+  "muc": {
+    "title": "Einladung zu {{name}}",
+    "heading": "Sie wurden zu {{name}} eingeladen",
+    "intro": "Treten Sie dem Gruppenchat {{name}} bei, indem Sie hier klicken:",
+    "button": "{{name}} beitreten",
+    "":""
+  },
+  "clients": "Wenn der Link nicht funktioniert, müssen Sie einen XMPP-Client installieren und einrichten, und dann diese Seite nochmal aufsuchen.",
+  "recommend": "Auf Android empfehlen wir einen von:",
+  "checkfulllist": "Sehen Sie sich die <a href='http://xmpp.org/software/clients.html'>vollständige Liste der XMPP-clients</a> für weitere Plattformen an.",
+  "xmppis": "XMPP ist eine Anbieter-unabhängige From des Instant Messaging.  Sie können sich einen von vielen Clients aussuchen und haben eine freie Auswahl, welchen Server Sie verwenden.",
+  "":""
+}
