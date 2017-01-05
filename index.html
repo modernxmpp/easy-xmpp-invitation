@@ -47,6 +47,13 @@ function load_hash() {
   key_prefix = "chat.";
   var jid = window.location.search || window.location.hash;
   jid = decodeURIComponent(jid.substring(jid.indexOf('#') + 1, jid.length));
+  try {
+    base_decoded = window.atob(jid);
+    if (base_decoded.search('@') >= 0)
+      jid = base_decoded;
+  } catch (err) {
+    // ignore error, JID wasn't base64 encoded
+  }
   if (jid.search("\\?join") >= 0) {
     muc = true;
     key_prefix = "muc.";
