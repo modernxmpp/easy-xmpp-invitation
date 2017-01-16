@@ -27,7 +27,7 @@
 		request.open('GET', url);
 		request.onreadystatechange = function () {
 			if (request.readyState === 4) {
-				if (request.status == 200 || (isLocalFileRequest(url) && request.responseText.length > 0)) {
+				if (request.status === 200 || (isLocalFileRequest(url) && request.responseText.length > 0)) {
 					show_clients(JSON.parse(request.responseText));
 				}
 			}
