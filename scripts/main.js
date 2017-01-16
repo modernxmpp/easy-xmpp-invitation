@@ -2,13 +2,7 @@
 	'use strict';
 
 	var initialized = false;
-
-	// load i18n and perform translation
-	var i18n = new I18nText({path: 'lang'});
-	i18n.once(I18nText.EVT_LOCALE_CHANGE, function (data) {
-		translate_ui();
-	});
-	i18n.setLocale('en');
+	var i18n;
 
 	// i18n key prefix for MUC ("muc.") or 1:1 chat ("chat.")
 	var key_prefix;
@@ -85,6 +79,13 @@
 	function load_done() {
 		if (initialized) return;
 		initialized = true;
+
+		// load i18n and perform translation
+		i18n = new I18nText({path: 'lang'});
+		i18n.once(I18nText.EVT_LOCALE_CHANGE, function (data) {
+			translate_ui();
+		});
+		i18n.setLocale('en');
 
 		// functionality
 		load_clients();
