@@ -1,8 +1,8 @@
 // load i18n and perform translation
-var i18n = new I18nText({path: 'lang'})
+var i18n = new I18nText({path: 'lang'});
 i18n.once(I18nText.EVT_LOCALE_CHANGE, function (data) {
 	translate_ui();
-})
+});
 i18n.setLocale('en');
 
 // i18n key prefix for MUC ("muc.") or 1:1 chat ("chat.")
@@ -20,16 +20,16 @@ function show_clients(client_array) {
 
 function load_clients() {
 	url = "clients.json";
-	var request = new XMLHttpRequest()
-	request.open('GET', url)
+	var request = new XMLHttpRequest();
+	request.open('GET', url);
 	request.onreadystatechange = function () {
 		if (request.readyState === 4) {
 			if (request.status == 200 || (isLocalFileRequest(url) && request.responseText.length > 0)) {
-				show_clients(JSON.parse(request.responseText))
+				show_clients(JSON.parse(request.responseText));
 			}
 		}
-	}
-	request.send(null)
+	};
+	request.send(null);
 }
 
 function load_hash() {
