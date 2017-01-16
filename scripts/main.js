@@ -86,4 +86,12 @@
 		rehash();
 		window.addEventListener("hashchange", rehash, false);
 	}
+
+	// Wait for the DOM to be ready
+	document.addEventListener('DOMContentLoaded', load_done, false);
+	document.onreadystatechange = function() {
+		if (document.readyState === 'interactive') {
+			load_done();
+		}
+	};
 })();
