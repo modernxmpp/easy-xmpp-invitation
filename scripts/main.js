@@ -1,4 +1,6 @@
 (function() {
+	'use strict';
+
 	// load i18n and perform translation
 	var i18n = new I18nText({path: 'lang'});
 	i18n.once(I18nText.EVT_LOCALE_CHANGE, function (data) {
