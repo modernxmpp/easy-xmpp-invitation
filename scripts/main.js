@@ -1,6 +1,8 @@
 (function() {
 	'use strict';
 
+	var initialized = false;
+
 	// load i18n and perform translation
 	var i18n = new I18nText({path: 'lang'});
 	i18n.once(I18nText.EVT_LOCALE_CHANGE, function (data) {
@@ -81,6 +83,9 @@
 	}
 
 	function load_done() {
+		if (initialized) return;
+		initialized = true;
+
 		// functionality
 		load_clients();
 		rehash();
