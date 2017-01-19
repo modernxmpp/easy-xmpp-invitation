@@ -90,6 +90,9 @@
 		// functionality
 		load_clients();
 		window.addEventListener("hashchange", rehash, false);
+		document.getElementById("url_in").addEventListener("focus", function(event) {
+			event.target.select();
+		});
 	}
 
 	// Wait for the DOM to be ready
