@@ -2,15 +2,13 @@
   "chat": {
     "title": "Einladung von {{name}}",
     "heading": "{{name}} hat Sie zum Chatten eingeladen",
-    "intro": "Fügen Sie {{name}} zu Ihren Kontakten hinzu, indem Sie hier klicken:",
-    "button": "{{name}} hinzufügen",
+    "button": "{{name}} als Kontakt hinzufügen",
     "":""
   },
   "muc": {
     "title": "Einladung zu {{name}}",
     "heading": "Sie wurden zu {{name}} eingeladen",
-    "intro": "Treten Sie dem Gruppenchat {{name}} bei, indem Sie hier klicken:",
-    "button": "{{name}} beitreten",
+    "button": "Gruppenchat {{name}} beitreten",
     "":""
   },
   "clients": "Wenn der Link nicht funktioniert, müssen Sie einen XMPP-Client installieren und einrichten, und dann diese Seite nochmal aufsuchen.",

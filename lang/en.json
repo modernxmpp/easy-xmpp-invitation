@@ -2,15 +2,13 @@
   "chat": {
     "title": "Invitation from {{name}}",
     "heading": "{{name}} has invited you to chat",
-    "intro": "Add {{name}} to your contact list by clicking the following link:",
-    "button": "Add {{name}}",
+    "button": "Add {{name}} to contact list",
     "":""
   },
   "muc": {
     "title": "Invitation to {{name}}",
     "heading": "You have been invited to {{name}}",
-    "intro": "Join the chat room {{name}} by clicking the following link:",
-    "button": "Join {{name}}",
+    "button": "Join the chat room {{name}}",
     "":""
   },
   "clients": "If this link does not work, you need to install and configure an XMPP client, and visit this page again afterwards.",

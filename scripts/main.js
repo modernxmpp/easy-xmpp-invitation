@@ -60,7 +60,7 @@
 		// translation
 		document.title = i18n.text(key_prefix + 'title',  display_data);
 		// MUC/chat specific
-		['heading', 'intro', 'button'].forEach(function(id) {
+		['heading', 'button'].forEach(function(id) {
 			document.getElementById(id).innerHTML = i18n.text(key_prefix + id, display_data);
 		});
 		// and agnostic
