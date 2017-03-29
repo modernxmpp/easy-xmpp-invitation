@@ -48,15 +48,16 @@
 			key_prefix = "muc.";
 		}
 
-		var jid_parts = display_data.jid.split("?");
-		jid_parts[0] = encodeURIComponent(jid_parts[0]) // URL-encode the JID only
-		display_data.jid = jid_parts.join("?");
-
 		// TODO: proper error checking / display / Creation of invitations
 		if (jid.search("@") <= 0) return {jid:"", name: "Somebody"};
 
 		var name = jid.split("@")[0];
 		name = name.charAt(0).toUpperCase() + name.slice(1);
+
+		var jid_parts = jid.split("?");
+		jid_parts[0] = encodeURIComponent(jid_parts[0]) // URL-encode the JID only
+		jid = jid_parts.join("?");
+
 		return {jid: jid, name: name};
 	}
 
