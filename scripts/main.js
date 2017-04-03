@@ -56,9 +56,9 @@
 
 		var jid_parts = jid.split("?");
 		jid_parts[0] = encodeURIComponent(jid_parts[0]) // URL-encode the JID only
-		jid = jid_parts.join("?");
+		var jid_encoded = jid_parts.join("?");
 
-		return {jid: jid, name: name};
+		return {jid: jid, jid_encoded: jid_encoded, name: name};
 	}
 
 	function translate_ui() {
@@ -76,7 +76,7 @@
 
 	function rehash() {
 		display_data = load_hash();
-		document.getElementById('button').href = "xmpp:" + display_data.jid;
+		document.getElementById('button').href = "xmpp:" + display_data.jid_encoded;
 		document.getElementById('url_in').value = "xmpp:" + display_data.jid;
 		translate_ui();
 	}
