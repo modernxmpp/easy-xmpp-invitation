@@ -64,3 +64,12 @@ input, button {
     letter-spacing: .1px;
     text-rendering: optimizeLegibility;
 }
+
+a {
+text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: #165d16;
+    text-decoration: underline;
+}
