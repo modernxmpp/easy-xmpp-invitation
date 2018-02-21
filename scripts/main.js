@@ -15,6 +15,17 @@
 			item.innerHTML = client_array[id];
 			list.appendChild(item);
 		}
+		// ensure that the client links are updated with the referrer
+		rehash();
+	}
+
+	function hash_clients(referrer) {
+		var list = document.getElementById('client_list');
+		if (referrer) {
+			list.querySelectorAll('a').forEach(a =>
+				a.href = a.href.replace(/\&referrer=[^&]/, '') + '&referrer=' + referrer
+			);
+		}
 	}
 
 	function load_clients() {
@@ -78,6 +89,7 @@
 		display_data = load_hash();
 		document.getElementById('button').href = "xmpp:" + display_data.jid_encoded;
 		document.getElementById('url_in').value = "xmpp:" + display_data.jid;
+		hash_clients("xmpp:" + display_data.jid_encoded);
 		translate_ui();
 	}
 
