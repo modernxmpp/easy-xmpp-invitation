@@ -1,10 +1,25 @@
 body {
 	background: #f8f8f8;
 	color: #000000;
+	font-size: 1em;
+	font-family: sans-serif;
 }
+h3 {
+	font-size: 1.5em;
+	font-weight: 400;
+	line-height: 1.1;
+	color: #444;
+}
+
 a {
 	color: #1863a1;
 }
+
+.btn:hover, .btn:focus, .btn.focus {
+	color: #666;
+	text-decoration: none;
+}
+
 .btn-primary {
 	background: #252e3f;
 	color: #f2f2f2;
@@ -12,9 +27,16 @@ a {
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
 	background: #353e5f;
 	color: #b7c1d5;
-    box-shadow: none;
+	box-shadow: none;
 }
 .btn-primary:active, .btn-primary.active {
-    background: #353e5f;
-    box-shadow: none;
+	background: #353e5f;
+	box-shadow: none;
+}
+.text-center {
+	text-align: center;
+}
+.hint {
+	font-size: 0.9em;
+	color: #444;
 }

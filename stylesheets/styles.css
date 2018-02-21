@@ -1,82 +1,66 @@
 /* Mostly cherrypicked from bootstrap https://getbootstrap.com/css/ */
-
-html {
-font-size: 1em;
-font-family: sans-serif;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.h3 {
-    font-size: 2em;
-    line-height: 1.1;
-    color: #444;
-}
-
 .btn {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: normal;
-    text-align: center;
-    vertical-align: middle;    text-transform: uppercase;
-    border-right: none;
-    border-bottom: none;
-    color: #666;
-    text-decoration: none;
-    transition: all .2s;
-    touch-action: manipulation;
-    cursor: pointer;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 6px 16px;
-    font-size: 13px;
-    line-height: 1.846;
-    border-radius: 3px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;    text-transform: uppercase;
+	border-right: none;
+	border-bottom: none;
+	color: #666;
+	text-decoration: none;
+	transition: all .2s;
+	touch-action: manipulation;
+	cursor: pointer;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 16px;
+	font-size: 13px;
+	line-height: 1.846;
+	border-radius: 3px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
 }
 
 .btn:hover, .btn:focus, .btn.focus {
-    color: #666;
-    text-decoration: none;
+	color: #666;
+	text-decoration: none;
 }
 
 textarea, textarea.form-control, input.form-control, input[type="text"], input[type="password"], input[type="email"], input[type="number"], .form-control[type="text"], .form-control[type="password"], .form-control[type="email"], .form-control[type="tel"] {
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    -webkit-box-shadow: inset 0 -1px 0 #ddd;
-    box-shadow: inset 0 -1px 0 #ddd;
-    font-size: 1.1em;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0 -1px 0 #ddd;
+	box-shadow: inset 0 -1px 0 #ddd;
+	font-size: 1.1em;
 }
 
 .form-control {
-    display: block;
-    width: 100%;
-    height: 37px;
-    line-height: 1.846;
-    color: #666;
-    background-color: transparent;
-    background-image: none;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	display: block;
+	width: 100%;
+	height: 37px;
+	line-height: 1.846;
+	color: #666;
+	background-color: transparent;
+	background-image: none;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
 input, button {
-    -webkit-font-smoothing: antialiased;
-    letter-spacing: .1px;
-    text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: .1px;
+	text-rendering: optimizeLegibility;
 }
 
 a {
-text-decoration: none;
+	text-decoration: none;
 }
 
 a:hover, a:focus {
-    color: #165d16;
-    text-decoration: underline;
+	color: #165d16;
+	text-decoration: underline;
 }
