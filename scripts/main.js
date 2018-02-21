@@ -15,6 +15,23 @@
 			item.innerHTML = client_array[id];
 			list.appendChild(item);
 		}
+		// ensure that the client links are updated with the referrer
+		rehash();
+	}
+
+	function hash_clients(referrer) {
+		var list = document.getElementById('client_list').getElementsByTagName('a');
+		if (referrer) {
+			console.log(referrer);
+			for (var i = 0; i < list.length; i++) {
+				var a = list[i];
+				console.log(a);
+				if (a.href && a.href.startsWith('https://play.google.com/store/apps/details')) {
+					a.href = a.href.replace(/\&referrer=[^&]/, '') + '&referrer=' + referrer;
+					console.log(a);
+				}
+			}
+		}
 	}
 
 	function load_clients(url) {
@@ -75,8 +92,10 @@
 
 	function rehash() {
 		display_data = load_hash();
+		console.log(display_data);
 		document.getElementById('button').href = "xmpp:" + display_data.jid_encoded;
 		document.getElementById('url_in').value = "xmpp:" + display_data.jid;
+		hash_clients("xmpp:" + display_data.jid_encoded);
 		translate_ui();
 	}
 
