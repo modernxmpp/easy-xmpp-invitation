@@ -49,7 +49,7 @@
 		}
 
 		// TODO: proper error checking / display / Creation of invitations
-		if (jid.search("@") <= 0) return {jid:"", name: "Somebody"};
+		if (jid.search("@") <= 0) return {jid:jid, jid_encoded:jid, name: jid};
 
 		var name = jid.split("@")[0];
 		name = name.charAt(0).toUpperCase() + name.slice(1);
