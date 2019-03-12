@@ -93,16 +93,16 @@
 
 		// functionality
 		if (navigator.userAgent.indexOf("Android") >= 0) {
-			load_clients("clients_android.json")
+			load_clients("clients_Android.json")
 		}
 		else if (navigator.userAgent.indexOf("Linux") >= 0)  {
-			load_clients("clients_desktop.json")
+			load_clients("clients_Linux.json")
 		}
                 else if (navigator.userAgent.indexOf("iPhone") >= 0)  {
-                        load_clients("clients_iphone.json")
+                        load_clients("clients_iOS.json")
                 }
 		else {
-			load_clients("clients_desktop.json")
+			load_clients("clients_Linux.json")
 		}
 
 		window.addEventListener("hashchange", rehash, false);
