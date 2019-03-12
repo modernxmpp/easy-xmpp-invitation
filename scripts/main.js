@@ -17,8 +17,7 @@
 		}
 	}
 
-	function load_clients() {
-		var url = "clients.json";
+	function load_clients(url) {
 		var request = new XMLHttpRequest();
 		request.open('GET', url);
 		request.onreadystatechange = function () {
@@ -93,7 +92,19 @@
 		i18n.setLocale('en');
 
 		// functionality
-		load_clients();
+		if (navigator.userAgent.indexOf("Android") >= 0) {
+			load_clients("clients_Android.json")
+		}
+		else if (navigator.userAgent.indexOf("Linux") >= 0)  {
+			load_clients("clients_Linux.json")
+		}
+                else if (navigator.userAgent.indexOf("iPhone") >= 0)  {
+                        load_clients("clients_iOS.json")
+                }
+		else {
+			load_clients("clients_Linux.json")
+		}
+
 		window.addEventListener("hashchange", rehash, false);
 		document.getElementById("url_in").addEventListener("focus", function(event) {
 			event.target.select();
