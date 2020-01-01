@@ -15,6 +15,7 @@
 			item.innerHTML = client_array[id];
 			list.appendChild(item);
 		}
+		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.jid);
 	}
 
 	function load_clients(url) {
