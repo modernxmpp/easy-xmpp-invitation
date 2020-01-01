@@ -1,8 +1,8 @@
 {
   "chat": {
     "title": "Invitație de la {{name}}",
-    "heading": "{{name}} vă invită să discutați",
-    "button": "Adaugă pe {{name}} la lista de contacte",
+    "heading": "{{name}} va invitat să discutați",
+    "button": "Adaugați pe {{name}} la lista de contacte",
     "":""
   },
   "muc": {
@@ -12,8 +12,8 @@
     "":""
   },
   "clients": "Dacă această legatură nu funcționează, trebuie să instalați și să configurați un client XMPP, și apoi să vizitați din nou această pagină.",
-  "recommend": "Pe Android vă recomandăm unul din acestea:",
+  "recommend": "Vă recomandăm unul dintre:",
   "checkfulllist": "Verificați lista completa de <a href='http://xmpp.org/software/clients.html'>aplicații client XMPP</a> pentru alte platforme.",
-  "xmppis": "XMPP este o formă de mesagerie instant ce nu depinde de un anume furnizor.  Vă puteți alege una din multiplele aplicații client și aveți libertatea de a vă alege serverul la care să participați.",
+  "xmppis": "XMPP este o formă de mesagerie instant ce nu depinde de un anume furnizor.  Puteți alege dintre mai multe aplicații client și aveți libertatea de a vă alege serverul la care să participați.",
   "":""
 }
