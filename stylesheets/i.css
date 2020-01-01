@@ -44,3 +44,9 @@ li {
 	font-size: 0.9em;
 	color: #444;
 }
+.qrcode {
+	padding-top: 15px;
+	width: 42.5%;
+	height: 100%;
+	margin: auto;
+}
