@@ -13,7 +13,7 @@
   },
   "clients": "Dacă această legatură nu funcționează, trebuie să instalați și să configurați un client XMPP, și apoi să vizitați din nou această pagină.",
   "recommend": "Pe Android vă recomandăm unul din acestea:",
-  "checkfulllist": "Verificați lista completa de <a href='http://xmpp.org/software/clients.html'>aplicații client XMPP</a> pentru alte platforme.",
+  "checkfulllist": "Verificați lista completa de <a href='https://xmpp.org/software/clients.html'>aplicații client XMPP</a> pentru alte platforme.",
   "xmppis": "XMPP este o formă de mesagerie instant ce nu depinde de un anume furnizor.  Vă puteți alege una din multiplele aplicații client și aveți libertatea de a vă alege serverul la care să participați.",
   "":""
 }
