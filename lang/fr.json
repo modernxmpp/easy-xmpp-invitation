@@ -13,7 +13,7 @@
   },
   "clients": "Si ce lien ne fonctionne pas, vous devez installer et configurer un client XMPP, puis revenir à cette page.",
   "recommend": "Nous recommandons un des clients suivants:",
-  "checkfulllist": "Vous pouvez consulter <a href='http://xmpp.org/software/clients.html'>la liste complète des clients XMPP</a> pour les autres plateformes.",
+  "checkfulllist": "Vous pouvez consulter <a href='https://xmpp.org/software/clients.html'>la liste complète des clients XMPP</a> pour les autres plateformes.",
   "xmppis": "XMPP est une forme de messagerie instantanée indépendante du fournisseur. Vous pouvez choisir parmi de nombreux clients et un libre choix d'opérateurs de serveurs pour participer.",
   "":""
 }
