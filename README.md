@@ -56,4 +56,4 @@ This project was inspired by
 
 ## License
 
-T.B.D.
+This code is licensed under the MIT License.
