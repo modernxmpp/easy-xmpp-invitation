@@ -15,7 +15,6 @@
 			item.innerHTML = client_array[id];
 			list.appendChild(item);
 		}
-		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.jid);
 	}
 
 	function load_clients(url) {
@@ -81,6 +80,11 @@
 		translate_ui();
 	}
 
+	function createQR() {
+		display_data = load_hash();
+		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.jid);
+	}
+
 	function load_done() {
 		if (initialized) return;
 		initialized = true;
@@ -97,13 +101,15 @@
 			load_clients("clients_Android.json")
 		}
 		else if (navigator.userAgent.indexOf("Linux") >= 0)  {
-			load_clients("clients_Linux.json")
+			load_clients("clients_Linux.json");
+			createQR();
 		}
                 else if (navigator.userAgent.indexOf("iPhone") >= 0)  {
                         load_clients("clients_iOS.json")
                 }
 		else {
-			load_clients("clients_Linux.json")
+			load_clients("clients_Linux.json");
+			createQR();
 		}
 
 		window.addEventListener("hashchange", rehash, false);
