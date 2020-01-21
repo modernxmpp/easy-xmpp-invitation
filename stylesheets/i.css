@@ -15,6 +15,10 @@ a {
 	color: #1863a1;
 }
 
+li {
+	padding-bottom: 0.75em;
+}
+
 .btn:hover, .btn:focus, .btn.focus {
 	color: #666;
 	text-decoration: none;
