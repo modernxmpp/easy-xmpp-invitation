@@ -1,0 +1,19 @@
+{
+  "chat": {
+    "title": "Zaproszenie od {{name}}",
+    "heading": "Zaproszono cię do rozmowy",
+    "button": "Dodaj {{name}} do listy kontaktów",
+    "":""
+  },
+  "muc": {
+    "title": "Zaproszenie do {{name}}",
+    "heading": "Zostałeś zaproszony do {{name}}",
+    "button": "Dołącz do pokoju {{name}}",
+    "":""
+  },
+  "clients": "Jeśli to łącze nie działa, będziesz musiał zainstalować i skonfigurować klienta XMPP i odwiedzić tę stronę ponownie.",
+  "recommend": "Polecamy jednego z:",
+  "checkfulllist": "Sprawdź <a href='https://xmpp.org/software/clients.html'>pełną listę klientów XMPP</a> dla innych platform.",
+  "xmppis": "XMPP to niezależny od dostawcy standard wiadomości natychmiastowych.  Możesz wybrać dowolną aplikację oraz operatora serwera aby dołączyć do sieci.",
+  "":""
+}
