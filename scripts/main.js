@@ -94,7 +94,19 @@
 		i18n.once(I18nText.event.LOCALE_CHANGE, function (data) {
 			rehash();
 		});
-		i18n.setLocale('en');
+
+		var preferredLocale, setLocale = false;
+		for (preferredLocale of navigator.languages) {
+			if (supportedLocales.includes(preferredLocale)) {
+				i18n.setLocale(preferredLocale);
+				setLocale = true;
+				break;
+			}
+		}
+		if (!setLocale) {
+			i18n.setLocale(defaultLocale);
+		}
+
 
 		// functionality
 		if (navigator.userAgent.indexOf("Android") >= 0) {
