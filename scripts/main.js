@@ -33,31 +33,31 @@
 	function load_hash() {
 		var muc = false;
 		key_prefix = "chat.";
-		var jid = window.location.search || window.location.hash;
-		jid = decodeURIComponent(jid.substring(jid.indexOf('#') + 1, jid.length));
+		var xmpp_uri = window.location.search || window.location.hash;
+		xmpp_uri = decodeURIComponent(xmpp_uri.substring(xmpp_uri.indexOf('#') + 1, xmpp_uri.length));
 		try {
-			base_decoded = window.atob(jid);
+			base_decoded = window.atob(xmpp_uri);
 			if (base_decoded.search('@') >= 0)
-				jid = base_decoded;
+				xmpp_uri = base_decoded;
 		} catch (err) {
 			// ignore error, JID wasn't base64 encoded
 		}
-		if (jid.search("\\?join") >= 0) {
+		if (xmpp_uri.search("\\?join") >= 0) {
 			muc = true;
 			key_prefix = "muc.";
 		}
 
 		// TODO: proper error checking / display / Creation of invitations
-		if (jid.search("@") <= 0) return {jid:jid, jid_encoded:jid, name: jid};
+		if (xmpp_uri.search("@") <= 0) return {xmpp_uri:xmpp_uri, xmpp_uri_encoded:xmpp_uri, name: xmpp_uri};
 
-		var name = jid.split("@")[0];
+		var name = xmpp_uri.split("@")[0];
 		name = name.charAt(0).toUpperCase() + name.slice(1);
 
-		var jid_parts = jid.split("?");
-		jid_parts[0] = encodeURIComponent(jid_parts[0]) // URL-encode the JID only
-		var jid_encoded = jid_parts.join("?");
+		var xmpp_uri_parts = xmpp_uri.split("?");
+		xmpp_uri_parts[0] = encodeURIComponent(xmpp_uri_parts[0]) // URL-encode the JID only
+		var xmpp_uri_encoded = xmpp_uri_parts.join("?");
 
-		return {jid: jid, jid_encoded: jid_encoded, name: name};
+		return {xmpp_uri: xmpp_uri, xmpp_uri_encoded: xmpp_uri_encoded, name: name};
 	}
 
 	function translate_ui() {
@@ -75,14 +75,14 @@
 
 	function rehash() {
 		display_data = load_hash();
-		document.getElementById('button').href = "xmpp:" + display_data.jid_encoded;
-		document.getElementById('url_in').value = "xmpp:" + display_data.jid;
+		document.getElementById('button').href = "xmpp:" + display_data.xmpp_uri_encoded;
+		document.getElementById('url_in').value = "xmpp:" + display_data.xmpp_uri;
 		translate_ui();
 	}
 
 	function createQR() {
 		display_data = load_hash();
-		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.jid);
+		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.xmpp_uri);
 	}
 
 	function load_done() {
