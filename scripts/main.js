@@ -54,6 +54,16 @@
 		name = name.charAt(0).toUpperCase() + name.slice(1);
 
 		var xmpp_uri_parts = xmpp_uri.split("?");
+		var xmpp_params = {};
+
+		if (xmpp_uri_parts.length > 1) {
+			let parameter, parameters = xmpp_uri_parts[1].split(";")
+			for (parameter of parameters) {
+				let key_value = parameter.split("=")
+				xmpp_params[key_value[0]] = key_value.length > 1 ? key_value[1] : "";
+			}
+		}
+
 		xmpp_uri_parts[0] = encodeURIComponent(xmpp_uri_parts[0]) // URL-encode the JID only
 		var xmpp_uri_encoded = xmpp_uri_parts.join("?");
 
