@@ -1,6 +1,7 @@
 [
-    "<strong><a href=\"https://play.google.com/store/apps/details?id=org.yaxim.androidclient\">yaxim</a></strong> - lightweight classic UI",
-    "<strong><a href=\"https://play.google.com/store/apps/details?id=eu.siacs.conversations\">Conversations</a></strong> - modern and featureful",
-    "<strong><a href=\"https://play.google.com/store/apps/details?id=com.xabber.android\">Xabber</a></strong> - focus on user experience and interoperability",
-    "<strong><a href=\"https://play.google.com/store/apps/details?id=org.yaxim.bruno\">Bruno</a></strong> - cute and cuddly (based on yaxim)"
+    "<a href=\"https://play.google.com/store/apps/details?id=org.yaxim.androidclient\"><img src=\"assets/yaxim.svg\" height=\"60\">yaxim</a>",
+    "<a href=\"https://play.google.com/store/apps/details?id=eu.siacs.conversations\"><img src=\"assets/conversations.svg\" height=\"60\">Conversations</a>",
+    "<a href=\"https://play.google.com/store/apps/details?id=com.xabber.android.beta/\"><img src=\"assets/xabber.svg\" height=\"60\">Xabber</a>",
+    "<a href=\"https://play.google.com/store/apps/details?id=org.yaxim.bruno\"><img src=\"assets/bruno.png\" height=\"60\">Bruno</a>",
+    "<a href=\"https://play.google.com/store/apps/details?id=de.monocles.chat\"><img src=\"assets/monocles.svg\" height=\"60\">monocles</a>"
 ]
