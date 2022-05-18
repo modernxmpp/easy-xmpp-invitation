@@ -1,4 +1,6 @@
 [
-    "<strong><a href=\"https://itunes.apple.com/us/app/monal-free-xmpp-chat/id317711500\">Monal</a></strong> - Free client for iOS and macOS",
-    "<strong><a href=\"https://itunes.apple.com/us/app/chatsecure/id464200063\">ChatSecure</a></strong> - Encrypted Messenger for iOS"
+    "<a href=\"https://apps.apple.com/us/app/jitsi-meet/id1165103905\"><img src=\"assets/jitsi.svg\" height=\"60\">Jitsi</a>",
+    "<a href=\"https://apps.apple.com/us/app/tigase-messenger/id1153516838\"><img src=\"assets/siskin.webp\" height=\"60\">Siskin IM</a>",
+    "<a href=\"https://apps.apple.com/us/app/monal-free-xmpp-chat/id317711500\"><img src=\"assets/monal.svg\" height=\"60\">Monal</a>",
+    "<a href=\"https://apps.apple.com/us/app/chatsecure/id464200063\"><img src=\"assets/chatsecure.svg\" height=\"60\">ChatSecure</a>"
 ]
