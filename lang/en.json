@@ -11,7 +11,7 @@
     "button": "Join the chat room {{name}}",
     "":""
   },
-  "clients": "You need install an XMPP client, to access the XMPP network.",
+  "clients": "You need to install an XMPP client, to access the XMPP network.",
   "recommend": "Here are the five most commonly used clients for your platform:",
   "checkfulllist": "See the <a href='https://xmpp.org/software/clients/'>full list</a> of XMPP clients for other platforms and devices.",
   "xmppis": "Welcome to XMPP, the all-inclusive instant messaging platform.",
