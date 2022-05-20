@@ -11,7 +11,7 @@
 	function show_clients(client_array) {
 		var list = document.getElementById('client_list');
 		for (var id = 0; id < client_array.length; id++) {
-			var item = document.createElement('span');
+			var item = document.createElement('div');
 			item.innerHTML = client_array[id];
 			list.appendChild(item);
 		}
