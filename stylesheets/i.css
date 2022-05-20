@@ -52,25 +52,25 @@ li {
 
 .img-center {
 	display: flex;
-	/* FIXME Why margin: auto; is not equal on all sides?
-	margin-right: 8%;
-	margin-left: 8%; */
-	width: 3%;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
 }
 
-.img-center > span {
+.img-center > div {
 	font-size: 0.7em;
 	padding: 1.4em;
-	margin: 40%;
+	text-align: center;
 }
 
-.img-center > span:hover {
+.img-center > div:hover {
 	border-radius: 4px;
 	background: rgb(230, 230, 230);
 }
 
-.img-center > span > a {
+.img-center > div > a {
 	text-decoration: solid;
+	display: flex;
+	flex-direction: column;
 }
 
 .qrcode {
