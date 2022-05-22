@@ -11,9 +11,9 @@
     "button": "Join the chat room {{name}}",
     "":""
   },
-  "clients": "If this link does not work, you need to install and configure an XMPP client, and visit this page again afterwards.",
-  "recommend": "We recommend one of:",
-  "checkfulllist": "Check the <a href='https://xmpp.org/software/clients.html'>full list of XMPP clients</a> for other platforms.",
-  "xmppis": "XMPP is a provider independent form of instant messaging.  You can pick from many different clients and have a free choice of server operators to participate.",
+  "clients": "You need to install an XMPP client, to access the XMPP network.",
+  "recommend": "Here are the most commonly used clients for your platform:",
+  "checkfulllist": "See the <a href='https://xmpp.org/software/clients/'>full list</a> of XMPP clients for other platforms and devices.",
+  "xmppis": "Welcome to XMPP, the all-inclusive instant messaging platform.",
   "":""
 }

@@ -4,6 +4,7 @@ body {
 	font-size: 1em;
 	font-family: sans-serif;
 }
+
 h3 {
 	font-size: 1.5em;
 	font-weight: 400;
@@ -28,22 +29,50 @@ li {
 	background: #252e3f;
 	color: #f2f2f2;
 }
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
 	background: #353e5f;
 	color: #b7c1d5;
 	box-shadow: none;
 }
+
 .btn-primary:active, .btn-primary.active {
 	background: #353e5f;
 	box-shadow: none;
 }
+
 .text-center {
 	text-align: center;
 }
+
 .hint {
 	font-size: 0.9em;
 	color: #444;
 }
+
+.img-center {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.img-center > div {
+	font-size: 0.7em;
+	padding: 1.4em;
+	text-align: center;
+}
+
+.img-center > div:hover {
+	border-radius: 4px;
+	background: rgb(230, 230, 230);
+}
+
+.img-center > div > a {
+	text-decoration: solid;
+	display: flex;
+	flex-direction: column;
+}
+
 .qrcode {
 	padding: 20px 5px 5px 5px;
 	width: 42.5%;

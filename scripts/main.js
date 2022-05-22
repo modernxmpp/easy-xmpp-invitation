@@ -11,7 +11,7 @@
 	function show_clients(client_array) {
 		var list = document.getElementById('client_list');
 		for (var id = 0; id < client_array.length; id++) {
-			var item = document.createElement('li');
+			var item = document.createElement('div');
 			item.innerHTML = client_array[id];
 			list.appendChild(item);
 		}
@@ -109,19 +109,35 @@
 
 
 		// functionality
-		if (navigator.userAgent.indexOf("Android") >= 0) {
-			load_clients("clients_Android.json")
-		}
-		else if (navigator.userAgent.indexOf("Linux") >= 0)  {
-			load_clients("clients_Linux.json");
-			createQR();
-		}
-                else if (navigator.userAgent.indexOf("iPhone") >= 0)  {
-                        load_clients("clients_iOS.json")
-                }
-		else {
-			load_clients("clients_Linux.json");
-			createQR();
+		var ua = navigator.userAgent;
+		switch (true) {
+			case (ua.indexOf("Windows") >= 0):
+				load_clients("clients_Windows.json")
+			break;
+			case (ua.indexOf("Android") >= 0):
+			case (ua.indexOf("CrOS") >= 0):
+				load_clients("clients_Android.json")
+				createQR();
+			break;
+			case (ua.indexOf("iPad") >= 0):
+			case (ua.indexOf("iPhone") >= 0):
+				load_clients("clients_iOS.json")
+				createQR();
+			break;
+			case (ua.indexOf("Mac OS X") >= 0):
+			case (ua.indexOf("Macintosh") >= 0):
+				load_clients("clients_OSX.json")
+			break;
+			case (ua.indexOf("Tizen") >= 0):
+				load_clients("clients_Tizen.json")
+				createQR();
+			break;
+			// just default
+			case (true):
+			case (ua.indexOf("Linux") >= 0):
+				load_clients("clients_Linux.json");
+				createQR();
+			break;
 		}
 
 		window.addEventListener("hashchange", rehash, false);
@@ -137,4 +153,16 @@
 			load_done();
 		}
 	};
+	
+	var logo = document.createElement('img');
+	logo.src = 'assets/xmpp.svg';
+	logo.alt= 'XMPP logo';
+	logo.width = 60;
+	
+	var link = document.createElement('a');
+	link.href = 'https://xmpp.org/';
+	link.append(logo)
+	
+	var brand = document.getElementById('xmpp');
+	brand.append(link)
 })();
