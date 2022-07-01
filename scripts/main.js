@@ -35,6 +35,9 @@
 		key_prefix = "chat.";
 		var xmpp_uri = window.location.search || window.location.hash;
 		xmpp_uri = decodeURIComponent(xmpp_uri.substring(xmpp_uri.indexOf('#') + 1, xmpp_uri.length));
+		if (xmpp_uri.indexOf("xmpp:") === 0) {
+			xmpp_uri = xmpp_uri.slice(5);
+		}
 		try {
 			base_decoded = window.atob(xmpp_uri);
 			if (base_decoded.search('@') >= 0)
