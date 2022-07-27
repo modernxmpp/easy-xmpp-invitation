@@ -1,2 +1,2 @@
-var supportedLocales = ['de', 'en', 'fr', 'pl', 'ro']
+var supportedLocales = ['de', 'en', 'fr', 'he', 'pl', 'ro']
 var defaultLocale = 'en'
