@@ -116,6 +116,10 @@
 		if (!setLocale) {
 			i18n.setLocale(defaultLocale);
 		}
+		var rtlLangs = "ar, fa, he, ur"
+		if (rtlLangs.includes(navigator.language)) {
+			document.querySelector("body").dir = "rtl";
+		}
 
 
 		// functionality
