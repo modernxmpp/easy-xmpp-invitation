@@ -12,9 +12,9 @@
 		var check_array = []
 		var list = document.getElementById('client_list');
 		while (check_array.length < 4) {
-			var item = document.createElement('div');
 			var ix = Math.floor(Math.random()*client_array.length);
 			if (!check_array.includes(client_array[ix])) {
+				var item = document.createElement('div');
 				check_array.push(client_array[ix]);
 				item.innerHTML = client_array[ix];
 				list.appendChild(item);
