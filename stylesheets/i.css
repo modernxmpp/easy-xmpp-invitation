@@ -75,6 +75,10 @@ li {
 
 .qrcode {
 	padding: 20px 5px 5px 5px;
-	height: 100%;
-	margin: auto;
+}
+
+.qrcode {
+	padding: 20px 5px 5px 5px;
+	max-width: 100%;
+	max-height: 100%;
 }
