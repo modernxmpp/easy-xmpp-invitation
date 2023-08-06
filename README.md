@@ -37,6 +37,13 @@ For the JID vladimir@xmpp.example, it will create the following page ([live exam
  * I18N and client suggestions are performed dynamically
  * MUCs get a special treatment in the UI to show they are a chat room and not a contact, based on presence of `?join` in the address
 
+## Setup
+
+The following steps are needed to get started:
+
+1. Create a copy of `config.js.dist` in the same directory, rename it to `config.js` and adjust it to your needs
+1. Open `index.html` in your web browser
+1. Append `#` and the JID you want to create the invitation for to the URL
 
 ## TODO
 
