@@ -23,20 +23,27 @@ For the JID vladimir@xmpp.example, it will create the following page ([live exam
 ## Principal operation
 
  * Vladimir clicks on his XMPP client's "Create Invitation" button
-    * The XMPP client creates a link according to [RFC 5122](https://tools.ietf.org/html/rfc5122), e.g. `xmpp:vladimir@xmpp.example?otr=23`
-    * The client automatically transforms the link into a landing page link by removing `xmpp:` and adding the address as an URI fragment to the hosted landing page, e.g. `https://www.xmpp.example/i/#vladimir@xmpp.example?otr=23`
- * Vladimir sends the resulting invitation link via E-Mail, SMS, QR-Code, [RFC 1149](https://tools.ietf.org/html/rfc1149) or any other means to user Donald.
- * Donald opens the link in the browser, which has an "Add"/"Join" button linking to the `xmpp:` URI
+    * The XMPP client creates a link according to [RFC 5122](https://datatracker.ietf.org/doc/html/rfc5122), e.g., `xmpp:vladimir@xmpp.example?otr=23`
+    * The client automatically transforms the link into a landing page link by removing `xmpp:` and adding the address as a URI fragment to the hosted landing page, e.g., `https://www.xmpp.example/i/#vladimir@xmpp.example?otr=23`
+ * Vladimir sends the resulting invitation link via email, text message, QR code, [RFC 1149](https://datatracker.ietf.org/doc/html/rfc1149) or any other means to the user Donald
+ * Donald opens the link in a web browser and the displayed page contains an "Add" or "Join" button with the `xmpp:` URI
    * If Donald has an XMPP client, it will handle the button click and open the "Add to roster" dialog
    * If Donald does not have an XMPP client, the link won't work. Donald must install a client and return to the link later
 
 ## Design decisions
 
- * The (privacy sensitive) JID and parameters are put into the URI fragment, which is not transmitted to the hosting server
+ * The (privacy-sensitive) JID and the parameters are put in the URI fragment which is not transmitted to the hosting server
  * The fragment is parsed by the receiving client, this requires JavaScript
  * I18N and client suggestions are performed dynamically
- * MUCs get a special treatment in the UI to show they are a chat room and not a contact, based on presence of `?join` in the address
+ * MUCs get a special treatment in the UI to show they are a chat room and not a contact, based on the presence of `?join` in the address
 
+## Setup
+
+The following steps are needed to get started:
+
+1. Create a copy of `config.js.dist` in the same directory, rename it to `config.js` and adjust it to your needs
+1. Open `index.html` in your web browser
+1. Append `#` and the JID you want to create the invitation for to the URL
 
 ## TODO
 

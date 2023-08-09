@@ -54,8 +54,6 @@
 		if (xmpp_uri.search("@") <= 0) return {xmpp_uri:xmpp_uri, xmpp_uri_encoded:xmpp_uri, name: xmpp_uri};
 
 		var xmpp_params = {};
-		var name = xmpp_uri.split("@")[0];
-		xmpp_params["name"] = name.charAt(0).toUpperCase() + name.slice(1);
 
 		var xmpp_uri_parts = xmpp_uri.split("?");
 
@@ -67,8 +65,16 @@
 			}
 		}
 
-		xmpp_uri_parts[0] = encodeURIComponent(xmpp_uri_parts[0]) // URL-encode the JID only
-		var xmpp_uri_encoded = xmpp_uri_parts.join("?");
+		const jid_parts = xmpp_uri_parts[0].split("@");
+
+		const local_part = jid_parts[0];
+		xmpp_params["name"] = local_part.charAt(0).toUpperCase() + local_part.slice(1);
+
+		const domain_part = jid_parts[1];
+
+		const jid_encoded = encodeURIComponent(local_part) + "@" + encodeURIComponent(domain_part)
+		xmpp_uri_parts[0] = jid_encoded
+		const xmpp_uri_encoded = xmpp_uri_parts.join("?")
 
 		return {xmpp_uri: xmpp_uri, xmpp_uri_encoded: xmpp_uri_encoded, name: xmpp_params["name"]};
 	}
@@ -95,7 +101,7 @@
 
 	function createQR() {
 		display_data = load_hash();
-		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.xmpp_uri);
+		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.xmpp_uri_encoded);
 	}
 
 	function load_done() {
