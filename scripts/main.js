@@ -12,6 +12,7 @@
 		var list = document.getElementById('client_list');
 		for (var id = 0; id < client_array.length; id++) {
 			var item = document.createElement('div');
+			/* innerHTML needed for client links */
 			item.innerHTML = client_array[id];
 			list.appendChild(item);
 		}
@@ -84,11 +85,12 @@
 		document.title = i18n.text(key_prefix + 'title',  display_data);
 		// MUC/chat specific
 		['heading', 'button'].forEach(function(id) {
-			document.getElementById(id).innerHTML = i18n.text(key_prefix + id, display_data);
+			document.getElementById(id).innerText = i18n.text(key_prefix + id, display_data);
 		});
 		// and agnostic
 		['clients', 'recommend', 'checkfulllist', 'xmppis'].forEach(function(id) {
-			document.getElementById(id).innerHTML = i18n.text(id, display_data);
+			/* innerHTML needed to display links and markup from translation */
+			document.getElementById(id).innerHTML = i18n.text(id, {});
 		});
 	}
 
