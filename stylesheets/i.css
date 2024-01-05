@@ -79,3 +79,22 @@ li {
 	height: 100%;
 	margin: auto;
 }
+
+.uri-input {
+        width: 100%;
+        padding: 5px !important;
+        border: solid black 1px !important;
+        margin-top: 0.25em;
+}
+
+.input-group {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0.75em !important;
+}
+
+.input-group input {
+        background-color: red !important;
+        margin-top: 0.5em !important;
+        margin-left: 0px !important;
+}

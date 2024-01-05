@@ -23,21 +23,46 @@
 <body>
   <div class="main">
     <noscript><h3>You need JavaScript to follow the invitation.</h3></noscript>
-    <h3 class="text-center" id="heading"></h3>
-    <p class="text-center"><a class="btn btn-primary" id="button"></a></p>
-    <input type="url" class="form-control text-center" id="url_in" readonly/>
-    <div class="qrcode" id="qrcode"></div>
+    <div id="display-uri" style="display:none">
+        <h3 class="text-center" id="heading" data-i18n=".heading"></h3>
+        <p class="text-center"><a class="btn btn-primary" id="button" data-i18n=".button"></a></p>
+        <input type="url" class="form-control text-center" id="url_in" readonly/>
+        <div class="qrcode" id="qrcode"></div>
 
-    <p class="lead text-center" id="clients"></p>
-    <p class="lead text-center" id="recommend"></p>
+        <p class="lead text-center" id="clients" data-i18n="clients"></p>
+        <p class="lead text-center" id="recommend" data-i18n="recommend"></p>
 
-    <p class="lead img-center text-center" id="client_list"></p>
+        <p class="lead img-center text-center" id="client_list"></p>
 
-    <i>
-      <p class="hint text-center" id="checkfulllist"></p>
-      <p class="hint text-center" id="xmppis"></p>
-    </i>
-    <p class="hint text-center" id="xmpp"></p>
+        <i>
+        <p class="hint text-center" id="checkfulllist" data-i18n="checkfulllist" data-i18n-target="innerHTML"></p>
+        <p class="hint text-center" id="xmppis" data-i18n="xmppis"></p>
+        </i>
+        <p class="hint text-center" id="xmpp"></p>
+    </div>
+    <div id="enter-uri" style="width:80%;display: none;">
+        <h3 class="text-center" id="enter-heading" data-i18n="create.heading"></h3>
+        <p data-i18n="create.desc"></p>
+        <div style="width: 90%;margin: 0 auto;">
+                <label for="uri_input" data-i18n="create.input"></label>
+                <input class="uri-input" id="uri_input" name="uri_input" type="text"/>
+                <div class="input-group">
+                        <input type="checkbox" id="is_muc" name="is_muc" value="muc">
+                        <label for="is_muc" data-i18n="create.is_muc"></label>
+                </div>
+
+                <button id="generate-link-btn" data-i18n="create.button"></button>
+
+		<div id="display-link" style="display:none">
+	                <h4 data-i18n="create.link_heading"></h4>
+	                <div class="text-center">
+	                <a id="generated-link" href=""></a><br/>
+	                <a href="#" class="btn" data-i18n="action-copy" id="copy-link"></a>
+	                <div id="copy-result"></div>
+	                </div>
+                </div>
+        </div>
+    </div>
   </div>
   <script src="scripts/i18n-text.min.js"></script>
   <script src="config.js"></script>
