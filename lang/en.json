@@ -11,9 +11,22 @@
     "button": "Join the chat room {{name}}",
     "":""
   },
+  "create": {
+    "title": "Create XMPP link",
+    "heading": "Create an XMPP link",
+    "desc": "Use this to create a quick friendly XMPP link you can share with people. Enter or paste an XMPP URI or JID below to begin.",
+    "button": "Generate link",
+    "input": "JID or URI:",
+    "is_muc": "This is a group chat",
+    "link_heading": "Your link",
+    "":""
+  },
   "clients": "You need to install an XMPP client to access the XMPP network.",
   "recommend": "Here are the most commonly used clients for your platform:",
   "checkfulllist": "See the <a href='https://xmpp.org/software/clients/'>full list</a> of XMPP clients for other platforms and devices.",
   "xmppis": "XMPP is a provider-independent kind of instant messaging where a wide selection of clients and servers allows you to participate.",
+  "action-copy": "Copy to clipboard",
+  "copy-success": "Copied!",
+  "copy-failure": "Failed to copy to clipboard",
   "":""
 }
