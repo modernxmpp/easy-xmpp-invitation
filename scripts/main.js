@@ -32,7 +32,6 @@
 	}
 
 	function load_hash() {
-		var muc = false;
 		key_prefix = "chat";
 		var xmpp_uri = window.location.search || window.location.hash;
 		xmpp_uri = decodeURIComponent(xmpp_uri.substring(xmpp_uri.indexOf('#') + 1, xmpp_uri.length));
@@ -47,12 +46,13 @@
 			// ignore error, JID wasn't base64 encoded
 		}
 		if (xmpp_uri.search("\\?join") >= 0) {
-			muc = true;
 			key_prefix = "muc";
+		} else if(xmpp_uri.search("\\?register") >= 0) {
+			key_prefix = "register";
 		}
 
 		// TODO: proper error checking / display / Creation of invitations
-		if (xmpp_uri.search("@") <= 0) return {xmpp_uri:xmpp_uri, xmpp_uri_encoded:xmpp_uri, name: xmpp_uri};
+		if (xmpp_uri.search("@") <= 0) return {xmpp_uri:xmpp_uri, xmpp_uri_encoded:xmpp_uri, name: xmpp_uri.split("?")[0]};
 
 		var xmpp_params = {};
 

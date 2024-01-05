@@ -11,6 +11,12 @@
     "button": "Join the chat room {{name}}",
     "":""
   },
+  "register": {
+    "title": "Invitation to {{name}}",
+    "heading": "You have been invited to create an account on {{name}}",
+    "button": "Register on {{name}}",
+    "":""
+  },
   "create": {
     "title": "Create XMPP link",
     "heading": "Create an XMPP link",
