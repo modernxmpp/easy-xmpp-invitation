@@ -12,6 +12,7 @@
 		var list = document.getElementById('client_list');
 		for (var id = 0; id < client_array.length; id++) {
 			var item = document.createElement('div');
+			/* innerHTML needed for client links */
 			item.innerHTML = client_array[id];
 			list.appendChild(item);
 		}
@@ -32,7 +33,7 @@
 
 	function load_hash() {
 		var muc = false;
-		key_prefix = "chat.";
+		key_prefix = "chat";
 		var xmpp_uri = window.location.search || window.location.hash;
 		xmpp_uri = decodeURIComponent(xmpp_uri.substring(xmpp_uri.indexOf('#') + 1, xmpp_uri.length));
 		if (xmpp_uri.indexOf("xmpp:") === 0) {
@@ -47,7 +48,7 @@
 		}
 		if (xmpp_uri.search("\\?join") >= 0) {
 			muc = true;
-			key_prefix = "muc.";
+			key_prefix = "muc";
 		}
 
 		// TODO: proper error checking / display / Creation of invitations
@@ -81,27 +82,106 @@
 
 	function translate_ui() {
 		// translation
-		document.title = i18n.text(key_prefix + 'title',  display_data);
-		// MUC/chat specific
-		['heading', 'button'].forEach(function(id) {
-			document.getElementById(id).innerHTML = i18n.text(key_prefix + id, display_data);
-		});
-		// and agnostic
-		['clients', 'recommend', 'checkfulllist', 'xmppis'].forEach(function(id) {
-			document.getElementById(id).innerHTML = i18n.text(id, display_data);
+		try {
+			document.title = i18n.text(key_prefix + '.title',  display_data);
+		} catch {
+		}
+
+		let translatable_els = document.querySelectorAll("[data-i18n]");
+
+		translatable_els.forEach(function (el) {
+			let key = el.dataset.i18n;
+			if(key.startsWith(".")) {
+				key = key_prefix + key;
+			}
+			let text;
+			try {
+				text = i18n.text(key, display_data);
+			} catch {
+				text = "UNTRANSLATED[" + key + "]";
+			}
+			let target = el.dataset.i18nTarget || "innerText";
+			if(target.startsWith("@")) {
+				el.setAttribute(target.substr(1), text);
+			} else {
+				el[target] = text;
+			}
 		});
 	}
 
 	function rehash() {
-		display_data = load_hash();
-		document.getElementById('button').href = "xmpp:" + display_data.xmpp_uri_encoded;
-		document.getElementById('url_in').value = "xmpp:" + display_data.xmpp_uri;
+		let hash = window.location.search || window.location.hash;
+		if(!hash || hash == "#") {
+			// Input mode
+			document.getElementById("display-uri").style.display = "none";
+			document.getElementById("enter-uri").style.display = "block";
+			initialize_uri_input();
+			key_prefix = "create";
+		} else {
+			document.getElementById("display-uri").style.display = "block";
+			document.getElementById("enter-uri").style.display = "none";
+
+			display_data = load_hash();
+			document.getElementById('button').href = "xmpp:" + display_data.xmpp_uri_encoded;
+			document.getElementById('url_in').value = "xmpp:" + display_data.xmpp_uri;
+		}
 		translate_ui();
 	}
 
 	function createQR() {
 		display_data = load_hash();
 		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.xmpp_uri_encoded);
+	}
+
+	function generate_link() {
+		let input_el = document.getElementById("uri_input");
+		let output_el = document.getElementById("generated-link");
+		let is_muc_el = document.getElementById("is_muc");
+
+		let input = input_el.value;
+		var uri;
+
+		if(!(input.indexOf("xmpp:") == 0)) {
+			uri = "xmpp:" + input;
+			if(is_muc_el.checked) {
+				uri += "?join";
+			}
+			is_muc_el.disabled = false;
+		} else {
+			uri = decodeURIComponent(input);
+			is_muc_el.disabled = true;
+			is_muc_el.checked = uri.endsWith("?join");
+		}
+
+		let encoded_uri = uri.substr(5).split("@").map(encodeURIComponent).join("@");
+
+		let link = document.location.origin + document.location.pathname + "#" + encoded_uri;
+		output_el.href = link;
+		output_el.innerText = link;
+	}
+
+	function copy_to_clipboard() {
+		let link = document.getElementById("generated-link");
+		let copy_result_el = document.getElementById("copy-result");
+		Promise.resolve().then(function () {
+			return navigator.clipboard.writeText(link.href);
+		}).then(function () {
+			copy_result_el.innerText = i18n.text("copy-success");
+		}, function () {
+			copy_result_el.innerText = i18n.text("copy-failure");
+		}).finally(function () {
+			copy_result_el.style.visibility = "visible";
+		});
+	}
+
+	function initialize_uri_input() {
+		document.getElementById("generate-link-btn").addEventListener("click", function () {
+			generate_link();
+			document.getElementById("display-link").style.display = "block";
+		});
+		document.getElementById("uri_input").addEventListener("input", generate_link);
+		document.getElementById("is_muc").addEventListener("change", generate_link);
+		document.getElementById("copy-link").addEventListener("click", copy_to_clipboard);
 	}
 
 	function load_done() {
@@ -176,16 +256,16 @@
 			load_done();
 		}
 	};
-	
+
 	var logo = document.createElement('img');
 	logo.src = 'assets/xmpp.svg';
 	logo.alt= 'XMPP logo';
 	logo.width = 60;
-	
+
 	var link = document.createElement('a');
 	link.href = 'https://xmpp.org/';
 	link.append(logo)
-	
+
 	var brand = document.getElementById('xmpp');
 	brand.append(link)
 })();
