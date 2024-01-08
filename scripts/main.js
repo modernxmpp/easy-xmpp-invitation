@@ -201,6 +201,12 @@
 			document.getElementById("display-link").style.display = "block";
 		});
 		document.getElementById("uri_input").addEventListener("input", generate_link);
+		document.getElementById("uri_input").addEventListener("keyup", function(event) {
+			event.preventDefault();
+			if (event.keyCode === 13) {
+				document.getElementById("generate-link-btn").click();
+			}
+		});
 		document.getElementById("is_muc").addEventListener("change", generate_link);
 		document.getElementById("copy-link").addEventListener("click", copy_to_clipboard);
 	}
