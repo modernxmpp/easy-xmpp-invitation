@@ -80,12 +80,37 @@
 		return {xmpp_uri: xmpp_uri, xmpp_uri_encoded: xmpp_uri_encoded, name: xmpp_params["name"]};
 	}
 
+	let fallbackLocale = "en";
+	let requested_fallback_locale = false;
+
+	function get_translated_string(key, data) {
+		return new Promise(function (resolve, reject) {
+			try {
+				return resolve(i18n.text(key, data));
+			} catch {
+				if(i18n.hasLocale(fallbackLocale)) {
+					return resolve(i18n.text(key, data, fallbackLocale));
+				}
+				i18n.once(I18nText.event.LOCALE_LOAD, function () {
+					try {
+						return resolve(i18n.text(key, data, fallbackLocale));
+					} catch {
+						return resolve("UNTRANSLATED[" + key + "]");
+					}
+				});
+				if(!requested_fallback_locale) {
+					i18n.loadLocale(fallbackLocale);
+					requested_fallback_locale = true;
+				}
+			}
+		});
+	}
+
 	function translate_ui() {
 		// translation
-		try {
-			document.title = i18n.text(key_prefix + '.title',  display_data);
-		} catch {
-		}
+		get_translated_string(key_prefix + '.title',  display_data).then(function (text) {
+			document.title = text;
+		});
 
 		let translatable_els = document.querySelectorAll("[data-i18n]");
 
@@ -94,18 +119,14 @@
 			if(key.startsWith(".")) {
 				key = key_prefix + key;
 			}
-			let text;
-			try {
-				text = i18n.text(key, display_data);
-			} catch {
-				text = "UNTRANSLATED[" + key + "]";
-			}
-			let target = el.dataset.i18nTarget || "innerText";
-			if(target.startsWith("@")) {
-				el.setAttribute(target.substr(1), text);
-			} else {
-				el[target] = text;
-			}
+			get_translated_string(key, display_data).then(function (text) {
+				let target = el.dataset.i18nTarget || "innerText";
+				if(target.startsWith("@")) {
+					el.setAttribute(target.substr(1), text);
+				} else {
+					el[target] = text;
+				}
+			});
 		});
 	}
 
