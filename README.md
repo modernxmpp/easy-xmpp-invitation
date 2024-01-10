@@ -7,13 +7,13 @@ part of the [Easy XMPP](https://wiki.xmpp.org/web/Easy_XMPP) initiative to
 improve the ["first contact"](https://wiki.xmpp.org/web/Easy_Onboarding#First_Contact)
 experience.
 
-For the JID romeo@montague.lit, it will create the following page ([live example](https://xmpp.link/i/#romeo@montague.lit)):
+For the JID romeo@montague.lit, it will create the following page ([live example](https://xmpp.link/#romeo@montague.lit)):
 
 > ## Romeo has invited you to chat
 > 
 > Add Romeo to your contact list by clicking the following link:
 >
->   [**[ Add Romeo ]**](https://xmpp.link/i/#romeo@montague.lit)
+>   [**[ Add Romeo ]**](https://xmpp.link/#romeo@montague.lit)
 > 
 > If this link does not work, you need to install and configure an XMPP client, and visit this page again afterwards.
 > 
