@@ -9,11 +9,16 @@
 	var display_data = null;
 
 	function show_clients(client_array) {
+		var check_array = []
 		var list = document.getElementById('client_list');
-		for (var id = 0; id < client_array.length; id++) {
-			var item = document.createElement('div');
-			item.innerHTML = client_array[id];
-			list.appendChild(item);
+		while (check_array.length < 4) {
+			var ix = Math.floor(Math.random()*client_array.length);
+			if (!check_array.includes(client_array[ix])) {
+				var item = document.createElement('div');
+				check_array.push(client_array[ix]);
+				item.innerHTML = client_array[ix];
+				list.appendChild(item);
+			}
 		}
 	}
 
