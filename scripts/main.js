@@ -187,9 +187,13 @@
 		Promise.resolve().then(function () {
 			return navigator.clipboard.writeText(link.href);
 		}).then(function () {
-			copy_result_el.innerText = i18n.text("copy-success");
+			get_translated_string('copy-success', {}).then(function (text) {
+				copy_result_el.innerText = text;
+			});
 		}, function () {
-			copy_result_el.innerText = i18n.text("copy-failure");
+			get_translated_string('copy-failure', {}).then(function (text) {
+				copy_result_el.innerText = text;
+			});
 		}).finally(function () {
 			copy_result_el.style.visibility = "visible";
 		});
