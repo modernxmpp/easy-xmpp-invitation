@@ -11,9 +11,28 @@
     "button": "Gruppenchat {{name}} beitreten",
     "":""
   },
+  "register": {
+    "title": "Einladung zu {{name}}",
+    "heading": "Sie wurden eingeladen, ein Konto auf {{name}} zu erstellen",
+    "button": "Registrieren auf {{name}}",
+    "":""
+  },
+  "create": {
+    "title": "XMPP-Link erzeugen",
+    "heading": "Einen XMPP-Link erzeugen",
+    "desc": "Hier können Sie schnell einen benutzerfreundlichen XMPP-Link zum weitergeben erzeugen. Tippen oder fügen Sie dazu eine XMPP-URI oder eie JID ein.",
+    "button": "Link erzeugen",
+    "input": "JID oder URI:",
+    "is_muc": "Gruppenchat-Einladung",
+    "link_heading": "Ihr Link",
+    "":""
+  },
   "clients": "Sie müssen einen XMPP-Client installieren, um auf das XMPP-Netzwerk zuzugreifen.",
   "recommend": "Wir empfehlen einen von:",
   "checkfulllist": "Sehen Sie sich die <a href='https://xmpp.org/software/clients.html'>vollständige Liste der XMPP-clients</a> für weitere Plattformen an.",
   "xmppis": "XMPP ist eine Anbieter-unabhängige Form des Instant Messaging.  Sie können sich einen von vielen Clients aussuchen und haben eine freie Auswahl, welchen Server Sie verwenden.",
+  "action-copy": "In Zwischenablage kopieren",
+  "copy-success": "Kopiert!",
+  "copy-failure": "Konnte nicht kopiert werden!",
   "":""
 }
