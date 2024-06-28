@@ -36,6 +36,13 @@
 		link.setAttribute("href", client_info[platform]);
 		let logo_url = client_info.logo || ("assets/" + client_id + ".svg");
 		img.setAttribute("src", logo_url);
+		if(star_apps && star_apps.includes(client_id)) {
+			let star_el = document.createElement("div");
+			star_el.innerText = "\u2B50";
+			star_el.classList.add("star");
+			item.classList.add("starred");
+			link.append(star_el);
+		}
 		link.append(img, client_info.title);
 		item.append(link);
 		item.classList.add("client-link");

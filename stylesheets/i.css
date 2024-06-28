@@ -141,3 +141,10 @@ li {
 	height: 5rem;
 	padding: 2rem !important;
 }
+
+.star {
+	width: 5rem;
+	text-align: left;
+	position: absolute;
+	font-size: 16pt;
+}
