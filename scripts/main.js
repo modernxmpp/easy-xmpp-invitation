@@ -86,13 +86,15 @@
 			}
 
 			// Prefer starred clients
-			let a_is_starred = star_apps.includes(a);
-			let b_is_starred = star_apps.includes(b);
+			if(star_apps && star_apps.length > 0) {
+				let a_is_starred = star_apps.includes(a);
+				let b_is_starred = star_apps.includes(b);
 
-			if(a_is_starred && !b_is_starred) {
-				return -1;
-			} else if(b_is_starred && !a_is_starred) {
-				return 1;
+				if(a_is_starred && !b_is_starred) {
+					return -1;
+				} else if(b_is_starred && !a_is_starred) {
+					return 1;
+				}
 			}
 
 			// Sort lexically by title
