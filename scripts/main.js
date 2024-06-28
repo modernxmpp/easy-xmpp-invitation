@@ -8,23 +8,126 @@
 	var key_prefix;
 	var display_data = null;
 
-	function show_clients(client_array) {
+	function get_platform() {
+		var ua = navigator.userAgent;
+		switch (true) {
+			case (ua.indexOf("Windows") >= 0):
+				return "windows";
+			case (ua.indexOf("Android") >= 0):
+			case (ua.indexOf("CrOS") >= 0):
+				return "android";
+			case (ua.indexOf("iPad") >= 0):
+			case (ua.indexOf("iPhone") >= 0):
+				return "ios";
+			case (ua.indexOf("Mac OS X") >= 0):
+			case (ua.indexOf("Macintosh") >= 0):
+				return "macos";
+			case (ua.indexOf("Linux") >= 0):
+				return "linux";
+			case (true):
+		}
+		return "web";
+	}
+
+	function get_client_link_element(client_id, client_info, platform) {
+		let item = document.createElement("div");
+		let link = document.createElement("a");
+		let img = document.createElement("img");
+		link.setAttribute("href", client_info[platform]);
+		let logo_url = client_info.logo || ("assets/" + client_id + ".svg");
+		img.setAttribute("src", logo_url);
+		link.append(img, client_info.title);
+		item.append(link);
+		item.classList.add("client-link");
+		return item;
+	}
+
+	function show_clients(all_clients) {
 		var list = document.getElementById('client_list');
-		for (var id = 0; id < client_array.length; id++) {
-			var item = document.createElement('div');
-			/* innerHTML needed for client links */
-			item.innerHTML = client_array[id];
-			list.appendChild(item);
+		let platform = get_platform();
+
+		let clients = [];
+
+		console.log(all_clients);
+
+		// Filter to clients suitable for our platform
+		for (var id in all_clients) {
+			if(hidden_apps.includes(id)) {
+				// Configured to never show this app
+				continue;
+			}
+
+			let client_info = all_clients[id];
+			if(client_info[platform] || client_info.web) {
+				clients.push(id);
+			}
+		}
+
+		// Sort the clients
+		clients.sort(function (a, b) {
+			let a_info = all_clients[a];
+			let b_info = all_clients[b];
+
+			// Prefer native clients
+			let a_is_native = !!a_info[platform];
+			let b_is_native = !!b_info[platform];
+
+			if(a_is_native && !b_is_native) {
+				return -1;
+			} else if(b_is_native && !a_is_native) {
+				return 1;
+			}
+
+			// Prefer starred clients
+			let a_is_starred = star_apps.includes(a);
+			let b_is_starred = star_apps.includes(b);
+
+			if(a_is_starred && !b_is_starred) {
+				return -1;
+			} else if(b_is_starred && !a_is_starred) {
+				return 1;
+			}
+
+			// Sort lexically by title
+			if(a_info.title < b_info.title) {
+				return -1;
+			} else if(b_info.title < a_info.title) {
+				return 1;
+			}
+
+			return 0;
+		});
+
+		// Empty any existing content from the list element
+		list.replaceChildren();
+
+		// Generate links and add them to the list element
+		for(var id of clients) {
+			let el = get_client_link_element(id, all_clients[id], platform);
+			list.append(el);
 		}
 	}
 
-	function load_clients(url) {
+	function load_clients() {
 		var request = new XMLHttpRequest();
-		request.open('GET', url);
+		request.open('GET', "clients.json");
 		request.onreadystatechange = function () {
 			if (request.readyState === 4) {
 				if (request.status === 200 || (isLocalFileRequest(url) && request.responseText.length > 0)) {
-					show_clients(JSON.parse(request.responseText));
+					let loaded_clients = JSON.parse(request.responseText);
+					if(custom_apps && custom_apps.length > 0) {
+						for(let custom_app in custom_apps) {
+							loaded_clients[custom_app] = custom_apps[custom_app];
+						}
+					}
+					if(only_apps && only_apps.length > 0) {
+						for(let id in loaded_clients) {
+							if(!only_apps.includes(id)) {
+								delete loaded_clients[id];
+							}
+						}
+					}
+					show_clients(loaded_clients);
 				}
 			}
 		};
@@ -244,36 +347,7 @@
 
 		// functionality
 		var ua = navigator.userAgent;
-		switch (true) {
-			case (ua.indexOf("Windows") >= 0):
-				load_clients("clients_Windows.json")
-			break;
-			case (ua.indexOf("Android") >= 0):
-			case (ua.indexOf("CrOS") >= 0):
-				load_clients("clients_Android.json")
-				createQR();
-			break;
-			case (ua.indexOf("iPad") >= 0):
-			case (ua.indexOf("iPhone") >= 0):
-				load_clients("clients_iOS.json")
-				createQR();
-			break;
-			case (ua.indexOf("Mac OS X") >= 0):
-			case (ua.indexOf("Macintosh") >= 0):
-				load_clients("clients_OSX.json")
-			break;
-			case (ua.indexOf("Tizen") >= 0):
-				load_clients("clients_Tizen.json")
-				createQR();
-			break;
-			// just default
-			case (true):
-			case (ua.indexOf("Linux") >= 0):
-				load_clients("clients_Linux.json");
-				createQR();
-			break;
-		}
-
+		load_clients();
 		window.addEventListener("hashchange", rehash, false);
 		document.getElementById("url_in").addEventListener("focus", function(event) {
 			event.target.select();
