@@ -135,3 +135,9 @@ li {
 		background: rgb(59 73 99);
 	}
 }
+
+.client-link {
+	width: 5rem;
+	height: 5rem;
+	padding: 2rem !important;
+}

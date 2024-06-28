@@ -1,0 +1,66 @@
+{
+	"yaxim": {
+		"title": "yaxim",
+		"android": "https://play.google.com/store/apps/details?id=org.yaxim.androidclient"
+	},
+	"conversations": {
+		"title": "Conversations",
+		"android": "https://play.google.com/store/apps/details?id=eu.siacs.conversations"
+	},
+	"cheogram": {
+		"title": "Cheogram",
+		"android": "https://play.google.com/store/apps/details?id=com.cheogram.android.playstore"
+	},
+	"bruno": {
+		"title": "Bruno",
+		"logo": "assets/bruno.png",
+		"android": "https://play.google.com/store/apps/details?id=org.yaxim.bruno"
+	},
+	"monocles": {
+		"title": "Monocles",
+		"android": "https://play.google.com/store/apps/details?id=eu.monocles.chat"
+	},
+	"monal": {
+		"title": "Monal IM",
+		"ios": "https://apps.apple.com/us/app/monal-free-xmpp-chat/id317711500",
+		"macos": "https://monal.im"
+	},
+	"siskin": {
+		"title": "Siskin IM",
+		"logo": "assets/siskin.jpeg",
+		"ios": "https://apps.apple.com/us/app/tigase-messenger/id1153516838"
+	},
+	"dino": {
+		"title": "Dino",
+		"linux": "https://dino.im"
+	},
+	"kaidan": {
+		"title": "Kaidan",
+		"linux": "https://www.kaidan.im/"
+	},
+	"conversejs": {
+		"title": "Converse",
+		"web": "https://conversejs.org/"
+	},
+	"gajim": {
+		"title": "Gajim",
+		"linux": "https://gajim.org",
+		"windows": "https://gajim.org"
+	},
+	"psi": {
+		"title": "Psi",
+		"logo": "assets/psi.png",
+		"linux": "https://psi-im.org",
+		"macos": "https://psi-im.org",
+		"windows": "https://psi-im.org"
+	},
+	"uwpx": {
+		"title": "UWPX",
+		"windows": "https://uwpx.org"
+	},
+	"movim": {
+		"title": "Movim",
+		"web": "https://join.movim.eu/"
+	}
+}
+	
