@@ -1,2 +1,31 @@
 var supportedLocales = ['de', 'en', 'fr', 'he', 'pl', 'ro']
 var defaultLocale = 'en'
+
+// If you use the default app list, but want to hide some, add them here
+var hidden_apps = [
+	// "example-app"
+]
+
+// Alternatively, if any apps are listed here, no other apps will be listed
+var only_apps = [
+]
+
+// Apps listed here will be listed first, and have a star icon. The defaults
+// here are those with up-to-date "advanced" compliance for IM, per xmpp.org.
+var star_apps = [
+	"conversations",
+	"monocles",
+	"dino",
+]
+
+// You can add custom apps here, which will be merged with the default list
+// It's also possible to override existing apps in the list with custom
+// metadata.
+var custom_apps = {
+/*
+	"my-app": {
+		"title": "My XMPP App",
+		"windows": "https://example.com"
+	}
+*/
+}
