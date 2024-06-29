@@ -245,6 +245,9 @@
 		// functionality
 		var ua = navigator.userAgent;
 		switch (true) {
+			case (ua.indexOf("Ubuntu") >= 0):
+				load_clients("clients_OpenStore.json")
+			break;
 			case (ua.indexOf("Windows") >= 0):
 				load_clients("clients_Windows.json")
 			break;
