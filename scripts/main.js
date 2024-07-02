@@ -8,25 +8,47 @@
 	var key_prefix;
 	var display_data = null;
 
-	function get_platform() {
+	// Return an array of platforms for this user agent, ranked from best
+	// (first) to worst (last).
+	function get_platforms() {
 		var ua = navigator.userAgent;
 		switch (true) {
 			case (ua.indexOf("Windows") >= 0):
-				return "windows";
+				return ["windows", "web"];
 			case (ua.indexOf("Android") >= 0):
 			case (ua.indexOf("CrOS") >= 0):
-				return "android";
+				return ["android", "web"];
 			case (ua.indexOf("iPad") >= 0):
 			case (ua.indexOf("iPhone") >= 0):
-				return "ios";
+				return ["ios", "web"];
 			case (ua.indexOf("Mac OS X") >= 0):
 			case (ua.indexOf("Macintosh") >= 0):
-				return "macos";
+				return ["macos", "web"];
 			case (ua.indexOf("Linux") >= 0):
-				return "linux";
+				return ["linux", "web"];
 			case (true):
 		}
-		return "web";
+		return ["web"];
+	}
+
+	function get_best_platform(client_info, platforms) {
+		for(let platform of platforms) {
+			if(client_info[platform]) {
+				return platform;
+			}
+		}
+		return null;
+	}
+
+	// Return the position of the first platform the client supports.
+	// The idea is that platforms earlier in the list are preferred.
+	function get_platform_rank(client_info, platforms) {
+		for(let pos in platforms) {
+			if(client_info[platforms[pos]]) {
+				return pos;
+			}
+		}
+		return null;
 	}
 
 	function get_client_link_element(client_id, client_info, platform) {
@@ -51,11 +73,9 @@
 
 	function show_clients(all_clients) {
 		var list = document.getElementById('client_list');
-		let platform = get_platform();
+		let platforms = get_platforms();
 
 		let clients = [];
-
-		console.log(all_clients);
 
 		// Filter to clients suitable for our platform
 		for (var id in all_clients) {
@@ -65,8 +85,10 @@
 			}
 
 			let client_info = all_clients[id];
-			if(client_info[platform] || client_info.web) {
-				clients.push(id);
+			for(let platform of platforms) {
+				if(client_info[platform]) {
+					clients.push(id);
+				}
 			}
 		}
 
@@ -76,12 +98,12 @@
 			let b_info = all_clients[b];
 
 			// Prefer native clients
-			let a_is_native = !!a_info[platform];
-			let b_is_native = !!b_info[platform];
+			let a_platform_rank = get_platform_rank(a_info, platforms);
+			let b_platform_rank = get_platform_rank(b_info, platforms);
 
-			if(a_is_native && !b_is_native) {
+			if(a_platform_rank < b_platform_rank) {
 				return -1;
-			} else if(b_is_native && !a_is_native) {
+			} else if(b_platform_rank < a_platform_rank) {
 				return 1;
 			}
 
@@ -112,6 +134,7 @@
 
 		// Generate links and add them to the list element
 		for(var id of clients) {
+			let platform = get_best_platform(all_clients[id], platforms);
 			let el = get_client_link_element(id, all_clients[id], platform);
 			list.append(el);
 		}
@@ -124,7 +147,7 @@
 			if (request.readyState === 4) {
 				if (request.status === 200 || (isLocalFileRequest(url) && request.responseText.length > 0)) {
 					let loaded_clients = JSON.parse(request.responseText);
-					if(custom_apps && custom_apps.length > 0) {
+					if(custom_apps) {
 						for(let custom_app in custom_apps) {
 							loaded_clients[custom_app] = custom_apps[custom_app];
 						}
