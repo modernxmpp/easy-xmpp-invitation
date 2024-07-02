@@ -25,6 +25,7 @@ var custom_apps = {
 /*
 	"my-app": {
 		"title": "My XMPP App",
+		"logo": "/my-logo.svg",
 		"windows": "https://example.com"
 	}
 */
