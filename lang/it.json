@@ -20,7 +20,7 @@
   "create": {
     "title": "Crea un link XMPP",
     "heading": "Crea un link XMPP",
-    "desc": "Usa questo per creare un link XMPP veloce e amichevole da poter condividere con altre persone. Inserisci o incolla un URI o un JID XMPP qui sotto per iniziare.",
+    "desc": "Usa questo strumento per creare un link XMPP veloce e amichevole da poter condividere con altre persone. Inserisci o incolla un URI o un JID XMPP qui sotto per iniziare.",
     "button": "Genera link",
     "input": "JID o URI:",
     "is_muc": "Questa è una chat di gruppo",
