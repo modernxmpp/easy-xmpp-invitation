@@ -1,0 +1,38 @@
+{
+  "chat": {
+    "title": "Invito da {{name}}",
+    "heading": "{{name}} ti ha invitato a chattare",
+    "button": "Aggiungi {{name}} alla lista contatti",
+    "":""
+  },
+  "muc": {
+    "title": "Invito per {{name}}",
+    "heading": "Sei stato invitato su {{name}}",
+    "button": "Unisciti alla stanza di chat {{name}}",
+    "":""
+  },
+  "register": {
+    "title": "Invito per {{name}}",
+    "heading": "Sei stato invitato a creare un account su {{name}}",
+    "button": "Registrati su {{name}}",
+    "":""
+  },
+  "create": {
+    "title": "Crea un link XMPP",
+    "heading": "Crea un link XMPP",
+    "desc": "Usa questo strumento per creare un link XMPP veloce e amichevole da poter condividere con altre persone. Inserisci o incolla un URI o un JID XMPP qui sotto per iniziare.",
+    "button": "Genera link",
+    "input": "JID o URI:",
+    "is_muc": "Questa è una chat di gruppo",
+    "link_heading": "Il tuo link",
+    "":""
+  },
+  "clients": "Devi installare un client XMPP per accedere alla rete XMPP.",
+  "recommend": "Questi sono i client più comunemente utilizzati sulla tua piattaforma:",
+  "checkfulllist": "Leggi la <a href='https://xmpp.org/software/clients/'>lista completa</a> dei client XMPP per altre piattaforme e dispositivi.",
+  "xmppis": "XMPP è un tipo di messaggistica istantanea indipendente dal provider dove un'ampia selezione di client e server ti permette di partecipare.",
+  "action-copy": "Copia negli appunti",
+  "copy-success": "Copiato!",
+  "copy-failure": "Copia negli appunti non riuscita",
+  "":""
+}
