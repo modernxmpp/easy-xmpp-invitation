@@ -174,7 +174,7 @@
 			xmpp_uri = xmpp_uri.slice(5);
 		}
 		try {
-			base_decoded = window.atob(xmpp_uri);
+			let base_decoded = window.atob(xmpp_uri);
 			if (base_decoded.search('@') >= 0)
 				xmpp_uri = base_decoded;
 		} catch (err) {
