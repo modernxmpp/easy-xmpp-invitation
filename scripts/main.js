@@ -393,16 +393,4 @@
 			load_done();
 		}
 	};
-
-	var logo = document.createElement('img');
-	logo.src = 'assets/xmpp.svg';
-	logo.alt= 'XMPP logo';
-	logo.width = 60;
-
-	var link = document.createElement('a');
-	link.href = 'https://xmpp.org/';
-	link.append(logo)
-
-	var brand = document.getElementById('xmpp');
-	brand.append(link)
 })();
