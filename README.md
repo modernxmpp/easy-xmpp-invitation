@@ -58,8 +58,10 @@ The following steps are needed to get started:
 ## Inspiration
 
 This project was inspired by
-[mod_invite](https://modules.prosody.im/mod_invite.html) and
-[Conversations'](https://conversations.im/) contact sharing page.
+* Prosody [mod_invite](https://modules.prosody.im/mod_invite.html)
+* [Conversations'](https://conversations.im/) contact sharing page
+* https://matrix.to/
+* https://t.me
 
 ## License
 
