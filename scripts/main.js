@@ -170,7 +170,7 @@
 		key_prefix = "chat";
 		var xmpp_uri = window.location.search || window.location.hash;
 		xmpp_uri = decodeURIComponent(xmpp_uri.substring(xmpp_uri.indexOf('#') + 1, xmpp_uri.length));
-		if (xmpp_uri.indexOf("xmpp:") === 0) {
+		if (xmpp_uri.startsWith("xmpp:")) {
 			xmpp_uri = xmpp_uri.slice(5);
 		}
 		try {
@@ -297,7 +297,7 @@
 		let input = input_el.value;
 		var uri;
 
-		if(!(input.indexOf("xmpp:") == 0)) {
+		if (!input.startsWith("xmpp:")) {
 			uri = "xmpp:" + input;
 			if(is_muc_el.checked) {
 				uri += "?join";
