@@ -1,12 +1,12 @@
 (function() {
 	'use strict';
 
-	var initialized = false;
-	var i18n;
+	let initialized = false;
+	let i18n;
 
 	// i18n key prefix for MUC ("muc.") or 1:1 chat ("chat.")
-	var key_prefix;
-	var display_data = null;
+	let key_prefix;
+	let display_data = null;
 
 	// Return an array of platforms for this user agent, ranked from best
 	// (first) to worst (last).
@@ -72,13 +72,13 @@
 	}
 
 	function show_clients(all_clients) {
-		var list = document.getElementById('client_list');
+		let list = document.getElementById('client_list');
 		let platforms = get_platforms();
 
 		let clients = [];
 
 		// Filter to clients suitable for our platform
-		for (var id in all_clients) {
+		for (let id in all_clients) {
 			if(hidden_apps.includes(id)) {
 				// Configured to never show this app
 				continue;
@@ -133,7 +133,7 @@
 		list.replaceChildren();
 
 		// Generate links and add them to the list element
-		for(var id of clients) {
+		for (let id of clients) {
 			let platform = get_best_platform(all_clients[id], platforms);
 			let el = get_client_link_element(id, all_clients[id], platform);
 			list.append(el);
@@ -141,7 +141,7 @@
 	}
 
 	function load_clients() {
-		var request = new XMLHttpRequest();
+		let request = new XMLHttpRequest();
 		request.open('GET', "clients.json");
 		request.onreadystatechange = function () {
 			if (request.readyState === 4) {
@@ -168,7 +168,7 @@
 
 	function load_hash() {
 		key_prefix = "chat";
-		var xmpp_uri = window.location.search || window.location.hash;
+		let xmpp_uri = window.location.search || window.location.hash;
 		xmpp_uri = decodeURIComponent(xmpp_uri.substring(xmpp_uri.indexOf('#') + 1, xmpp_uri.length));
 		if (xmpp_uri.startsWith("xmpp:")) {
 			xmpp_uri = xmpp_uri.slice(5);
@@ -189,9 +189,9 @@
 		// TODO: proper error checking / display / Creation of invitations
 		if (xmpp_uri.search("@") <= 0) return {xmpp_uri:xmpp_uri, xmpp_uri_encoded:xmpp_uri, name: xmpp_uri.split("?")[0]};
 
-		var xmpp_params = {};
+		let xmpp_params = {};
 
-		var xmpp_uri_parts = xmpp_uri.split("?");
+		let xmpp_uri_parts = xmpp_uri.split("?");
 
 		if (xmpp_uri_parts.length > 1) {
 			let parameter, parameters = xmpp_uri_parts[1].split(";")
@@ -295,7 +295,7 @@
 		let is_muc_el = document.getElementById("is_muc");
 
 		let input = input_el.value;
-		var uri;
+		let uri;
 
 		if (!input.startsWith("xmpp:")) {
 			uri = "xmpp:" + input;
@@ -360,7 +360,7 @@
 			rehash();
 		});
 
-		var preferredLocale, setLocale = false;
+		let preferredLocale, setLocale = false;
 		for (preferredLocale of navigator.languages) {
 			if (supportedLocales.includes(preferredLocale)) {
 				i18n.setLocale(preferredLocale);
@@ -371,14 +371,13 @@
 		if (!setLocale) {
 			i18n.setLocale(defaultLocale);
 		}
-		var rtlLangs = "ar, fa, he, ur"
+		let rtlLangs = "ar, fa, he, ur"
 		if (rtlLangs.includes(navigator.language)) {
 			document.querySelector("body").dir = "rtl";
 		}
 
 
 		// functionality
-		var ua = navigator.userAgent;
 		load_clients();
 		window.addEventListener("hashchange", rehash, false);
 		document.getElementById("url_in").addEventListener("focus", function(event) {
