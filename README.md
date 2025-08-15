@@ -42,7 +42,7 @@ The project's official hosted landing page is at [xmpp.link](https://xmpp.link/)
 
 The following steps are needed to get started:
 
-1. Create a copy of `config.js.dist` in the same directory, rename it to `config.js` and adjust it to your needs
+1. Create a copy of `config.dist.js` in the same directory, rename it to `config.js` and adjust it to your needs
 1. Open `index.html` in your web browser
 1. Append `#` and the JID you want to create the invitation for to the URL
 
