@@ -49,7 +49,7 @@
 	},
 	"psi": {
 		"title": "Psi",
-		"logo": "assets/psi.png",
+		"logo": "assets/psi.svg",
 		"linux": "https://psi-im.org",
 		"macos": "https://psi-im.org",
 		"windows": "https://psi-im.org"
