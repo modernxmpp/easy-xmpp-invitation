@@ -1,8 +1,4 @@
 {
-	"yaxim": {
-		"title": "yaxim",
-		"android": "https://play.google.com/store/apps/details?id=org.yaxim.androidclient"
-	},
 	"conversations": {
 		"title": "Conversations",
 		"android": "https://play.google.com/store/apps/details?id=eu.siacs.conversations"
@@ -10,11 +6,6 @@
 	"cheogram": {
 		"title": "Cheogram",
 		"android": "https://play.google.com/store/apps/details?id=com.cheogram.android.playstore"
-	},
-	"bruno": {
-		"title": "Bruno",
-		"logo": "assets/bruno.png",
-		"android": "https://play.google.com/store/apps/details?id=org.yaxim.bruno"
 	},
 	"monocles": {
 		"title": "Monocles",
