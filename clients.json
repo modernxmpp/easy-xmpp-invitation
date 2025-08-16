@@ -3,6 +3,10 @@
 		"title": "yaxim",
 		"android": "https://play.google.com/store/apps/details?id=org.yaxim.androidclient"
 	},
+	"atalk": {
+		"title": "aTalk",
+		"android": "https://play.google.com/store/apps/details?id=org.atalk.android"
+	},
 	"conversations": {
 		"title": "Conversations",
 		"android": "https://play.google.com/store/apps/details?id=eu.siacs.conversations"
