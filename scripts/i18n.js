@@ -7,6 +7,7 @@ let key_prefix
 // load i18n and perform translation
 i18n = new I18nText({ path: 'lang' })
 i18n.on(I18nText.event.LOCALE_CHANGE, function (data) {
+  document.getElementById('lang-picker').value = data.locale
   let rtlLangs = 'ar, fa, he, ur'
   if (rtlLangs.includes(data.locale)) {
     document.querySelector('body').dir = 'rtl'
