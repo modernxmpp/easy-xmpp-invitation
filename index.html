@@ -21,6 +21,20 @@
   <![endif]-->
 </head>
 <body>
+  <div class="header">
+    <div>
+      <label for="lang-picker">🌐 Language 文Ａ</label>
+      <select id="lang-picker" onchange="i18n.setLocale(this.value)">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="he">עִברִית</option>
+        <option value="pl">Polski</option>
+        <option value="ro">Română</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+  </div>
   <div class="main">
     <noscript><h3>You need JavaScript to follow the invitation.</h3></noscript>
     <div id="display-uri" style="display:none">
