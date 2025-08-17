@@ -3,6 +3,10 @@
 		"title": "yaxim",
 		"android": "https://play.google.com/store/apps/details?id=org.yaxim.androidclient"
 	},
+	"beagle": {
+		"title": "Beagle IM",
+		"macos": "https://apps.apple.com/us/app/beagle-im/id1445349494"
+	},
 	"conversations": {
 		"title": "Conversations",
 		"android": "https://play.google.com/store/apps/details?id=eu.siacs.conversations"
