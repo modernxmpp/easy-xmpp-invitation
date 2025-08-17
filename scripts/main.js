@@ -1,11 +1,7 @@
-(function() {
 	'use strict';
 
 	let initialized = false;
-	let i18n;
 
-	// i18n key prefix for MUC ("muc.") or 1:1 chat ("chat.")
-	let key_prefix;
 	let display_data = null;
 
 	// Return an array of platforms for this user agent, ranked from best
@@ -383,29 +379,6 @@
 		if (initialized) return;
 		initialized = true;
 
-		// load i18n and perform translation
-		i18n = new I18nText({path: 'lang'});
-		i18n.once(I18nText.event.LOCALE_CHANGE, function (data) {
-			rehash();
-		});
-
-		let preferredLocale, setLocale = false;
-		for (preferredLocale of navigator.languages) {
-			if (supportedLocales.includes(preferredLocale)) {
-				i18n.setLocale(preferredLocale);
-				setLocale = true;
-				break;
-			}
-		}
-		if (!setLocale) {
-			i18n.setLocale(defaultLocale);
-		}
-		let rtlLangs = "ar, fa, he, ur";
-		if (rtlLangs.includes(navigator.language)) {
-			document.querySelector("body").dir = "rtl";
-		}
-
-
 		// functionality
 		load_clients();
 		window.addEventListener("hashchange", rehash, false);
@@ -430,4 +403,3 @@
 			load_done();
 		}
 	};
-})();
