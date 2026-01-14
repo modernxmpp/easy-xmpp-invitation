@@ -129,10 +129,6 @@ li {
         outline: 1px solid rgb(73 83 94);
     }
 
-    .qrcode img {
-        filter: invert(1);
-    }
-
     .hint {
         color: rgb(204 204 204);
     }
