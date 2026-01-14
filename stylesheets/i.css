@@ -74,10 +74,11 @@ li {
 }
 
 .qrcode {
-    padding: 20px 5px 5px 5px;
-    width: 42.5%;
-    height: 100%;
-    margin: auto;
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    margin: 10px auto;
 }
 
 .uri-input {
