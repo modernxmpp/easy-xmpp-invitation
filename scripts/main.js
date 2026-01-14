@@ -282,11 +282,14 @@
 			document.getElementById('url_in').value = "xmpp:" + display_data.xmpp_uri;
 		}
 		translate_ui();
+		createQR();
 	}
 
 	function createQR() {
 		display_data = load_hash();
-		new QRCode(document.getElementById("qrcode"), "xmpp:" + display_data.xmpp_uri_encoded);
+		let qr = document.getElementById("qrcode");
+		qr.innerText = '';
+		new QRCode(qr, "xmpp:" + display_data.xmpp_uri_encoded);
 	}
 
 	function generate_link() {
