@@ -290,7 +290,11 @@
 		display_data = load_hash();
 		let qr = document.getElementById("qrcode");
 		qr.innerText = '';
-		new QRCode(qr, "xmpp:" + display_data.xmpp_uri_encoded);
+		const qrcode_opts = {
+			text: "xmpp:" + display_data.xmpp_uri_encoded,
+			addQuietZone: true
+		};
+		new QRCode(qr, qrcode_opts);
 	}
 
 	function generate_link() {

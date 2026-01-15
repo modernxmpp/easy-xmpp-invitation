@@ -74,10 +74,8 @@ li {
 }
 
 .qrcode {
-    padding: 20px;
     width: fit-content;
     height: fit-content;
-    background-color: white;
     margin: 10px auto;
 }
 
