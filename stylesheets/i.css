@@ -73,6 +73,11 @@ li {
     flex-direction: column;
 }
 
+.uri-button {
+	  margin-top: 20px;
+	  font-size: 1.2em;
+}
+
 .qrcode {
     width: fit-content;
     height: fit-content;
