@@ -5,7 +5,7 @@ body {
     font-family: sans-serif;
 }
 
-h3 {
+h1 {
     font-size: 1.5em;
     font-weight: 400;
     line-height: 1.1;
@@ -106,7 +106,7 @@ li {
         background: rgb(33 37 41);
     }
 
-    h3 {
+    h1 {
         color: rgb(255 255 255);
     }
 
