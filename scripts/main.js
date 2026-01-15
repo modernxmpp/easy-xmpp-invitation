@@ -194,9 +194,9 @@
 		let xmpp_uri_parts = xmpp_uri.split("?");
 
 		if (xmpp_uri_parts.length > 1) {
-			let parameter, parameters = xmpp_uri_parts[1].split(";")
+			let parameter, parameters = xmpp_uri_parts[1].split(";");
 			for (parameter of parameters) {
-				let key_value = parameter.split("=")
+				let key_value = parameter.split("=");
 				xmpp_params[key_value[0]] = key_value.length > 1 ? key_value[1] : "";
 			}
 		}
@@ -208,9 +208,9 @@
 
 		const domain_part = jid_parts[1];
 
-		const jid_encoded = encodeURIComponent(local_part) + "@" + encodeURIComponent(domain_part)
-		xmpp_uri_parts[0] = jid_encoded
-		const xmpp_uri_encoded = xmpp_uri_parts.join("?")
+		const jid_encoded = encodeURIComponent(local_part) + "@" + encodeURIComponent(domain_part);
+		xmpp_uri_parts[0] = jid_encoded;
+		const xmpp_uri_encoded = xmpp_uri_parts.join("?");
 
 		return {xmpp_uri: xmpp_uri, xmpp_uri_encoded: xmpp_uri_encoded, name: xmpp_params["name"]};
 	}
@@ -237,6 +237,7 @@
 					i18n.loadLocale(fallbackLocale);
 					requested_fallback_locale = true;
 				}
+				return "";
 			}
 		});
 	}
@@ -374,7 +375,7 @@
 		if (!setLocale) {
 			i18n.setLocale(defaultLocale);
 		}
-		let rtlLangs = "ar, fa, he, ur"
+		let rtlLangs = "ar, fa, he, ur";
 		if (rtlLangs.includes(navigator.language)) {
 			document.querySelector("body").dir = "rtl";
 		}
