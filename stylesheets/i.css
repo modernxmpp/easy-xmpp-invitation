@@ -76,7 +76,13 @@ li {
 .qrcode {
     width: fit-content;
     height: fit-content;
-    margin: 10px auto;
+    margin: 10px auto 40px;
+}
+
+.qrcode-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .uri-input {
@@ -137,6 +143,12 @@ li {
 
     .btn-primary {
         background: rgb(59 73 99);
+    }
+}
+
+.d-none {
+    @media (max-width: 767.98px) {
+        display: none;
     }
 }
 

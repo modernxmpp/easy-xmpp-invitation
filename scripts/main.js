@@ -297,6 +297,15 @@
 		new QRCode(qr, qrcode_opts);
 	}
 
+	function toggleQRCode(e) {
+		const qrcode = document.getElementById("qrcode");
+		if (qrcode.classList.contains('d-none'))
+			qrcode.classList.remove('d-none');
+		else
+			qrcode.classList.add('d-none');
+		e.preventDefault();
+	}
+
 	function generate_link() {
 		let input_el = document.getElementById("uri_input");
 		let output_el = document.getElementById("generated-link");
@@ -391,6 +400,7 @@
 		document.getElementById("url_in").addEventListener("focus", function(event) {
 			event.target.select();
 		});
+		document.getElementById("qrcode_button").onclick = toggleQRCode;
 	}
 
 	// Wait for the DOM to be ready

@@ -34,5 +34,6 @@
   "action-copy": "In Zwischenablage kopieren",
   "copy-success": "Kopiert!",
   "copy-failure": "Konnte nicht kopiert werden!",
+  "qrcode-button": "Mit anderem Gerät scannen",
   "":""
 }
