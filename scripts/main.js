@@ -202,7 +202,7 @@
 		}
 
 		const jid_parts = xmpp_uri_parts[0].split("@");
-
+		const jid = xmpp_uri_parts[0];
 		const local_part = jid_parts[0];
 		xmpp_params["name"] = local_part.charAt(0).toUpperCase() + local_part.slice(1);
 
@@ -212,7 +212,7 @@
 		xmpp_uri_parts[0] = jid_encoded;
 		const xmpp_uri_encoded = xmpp_uri_parts.join("?");
 
-		return {xmpp_uri: xmpp_uri, xmpp_uri_encoded: xmpp_uri_encoded, name: xmpp_params["name"]};
+		return {jid: jid, xmpp_uri: xmpp_uri, xmpp_uri_encoded: xmpp_uri_encoded, name: xmpp_params["name"]};
 	}
 
 	let fallbackLocale = "en";
@@ -333,22 +333,23 @@
 		output_el.innerText = link;
 	}
 
-	function copy_to_clipboard() {
-		let link = document.getElementById("generated-link");
-		let copy_result_el = document.getElementById("copy-result");
-		Promise.resolve().then(function () {
-			return navigator.clipboard.writeText(link.href);
-		}).then(function () {
-			get_translated_string('copy-success', {}).then(function (text) {
-				copy_result_el.innerText = text;
+	function copy_to_clipboard(copy_result_el, val_f) {
+		return (e) => {
+			Promise.resolve().then(function () {
+				return navigator.clipboard.writeText(val_f());
+			}).then(function () {
+				get_translated_string('copy-success', {}).then(function (text) {
+					copy_result_el.innerText = text;
+				});
+			}, function () {
+				get_translated_string('copy-failure', {}).then(function (text) {
+					copy_result_el.innerText = text;
+				});
+			}).finally(function () {
+				copy_result_el.style.visibility = "visible";
 			});
-		}, function () {
-			get_translated_string('copy-failure', {}).then(function (text) {
-				copy_result_el.innerText = text;
-			});
-		}).finally(function () {
-			copy_result_el.style.visibility = "visible";
-		});
+			e.preventDefault();
+		};
 	}
 
 	function initialize_uri_input() {
@@ -364,7 +365,10 @@
 			}
 		});
 		document.getElementById("is_muc").addEventListener("change", generate_link);
-		document.getElementById("copy-link").addEventListener("click", copy_to_clipboard);
+		document.getElementById("copy-link").addEventListener(
+			"click",
+			copy_to_clipboard(document.getElementById("copy-result"),
+			                  () => { return document.getElementById("generated-link").href;}));
 	}
 
 	function load_done() {
@@ -401,6 +405,14 @@
 			event.target.select();
 		});
 		document.getElementById("qrcode_button").onclick = toggleQRCode;
+		document.getElementById("copy-jid-link").addEventListener(
+			"click",
+			copy_to_clipboard(document.getElementById("copy-jid-result"),
+			                  () => {
+			                    if (display_data.jid)
+			                      return display_data.jid;
+			                    return document.getElementById("url_in").value;
+			                  }));
 	}
 
 	// Wait for the DOM to be ready
