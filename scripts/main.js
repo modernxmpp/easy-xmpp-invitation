@@ -204,7 +204,13 @@
 		const jid_parts = xmpp_uri_parts[0].split("@");
 		const jid = xmpp_uri_parts[0];
 		const local_part = jid_parts[0];
-		xmpp_params["name"] = local_part.charAt(0).toUpperCase() + local_part.slice(1);
+		if (key_prefix == "register") {
+			// for register URIs, the 'name' is always the server domain
+			xmpp_params["name"] = jid_parts.at(-1);
+		} else if (!("name" in xmpp_params)) {
+			// otherwise, the name can be passed or will be the Capitalized local part
+			xmpp_params["name"] = local_part.charAt(0).toUpperCase() + local_part.slice(1);
+		}
 
 		const domain_part = jid_parts[1];
 
