@@ -55,10 +55,6 @@
 		"macos": "https://psi-im.org",
 		"windows": "https://psi-im.org"
 	},
-	"uwpx": {
-		"title": "UWPX",
-		"windows": "https://uwpx.org"
-	},
 	"movim": {
 		"title": "Movim",
 		"web": "https://join.movim.eu/"
