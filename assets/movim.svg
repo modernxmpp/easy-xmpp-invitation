@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><defs><linearGradient id="a" x1="40" x2="200" y1="40" y2="200" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#345cca" style="stop-color:#5452c9;stop-opacity:1"/><stop offset="1" stop-color="#5d47c6" style="stop-color:#413fb5;stop-opacity:1"/></linearGradient><linearGradient id="b" x1="125" x2="174.95" y1="65" y2="210.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#344394"/><stop offset="1" stop-color="#7c45df" style="stop-color:#5553be;stop-opacity:1"/></linearGradient><filter id="c" width="1.285" height="1.489" x="-.142" y="-.244"><feGaussianBlur stdDeviation="10.686"/></filter></defs><circle cx="120" cy="120" r="110" fill="url(#a)" stroke="url(#b)" stroke-width="3"/><path fill="#332949" d="M112.916 82.039c-20.51 0-37.137 16.627-37.137 37.137 0 1.594.107 3.17.302 4.712-.294-.01-.587-.023-.882-.023-17.434 0-31.567 14.133-31.567 31.567s14.133 31.567 31.567 31.567h122.44c14.357 0 25.996-11.64 25.996-25.996s-11.64-25.996-25.996-25.996h-.14c.034-.649.07-1.293.07-1.95 0-20.51-16.627-37.137-37.137-37.137a37.016 37.016 0 0 0-15.992 3.62c-6.56-10.506-18.221-17.5-31.52-17.5z" filter="url(#c)" opacity=".459" transform="scale(.91667)"/><path fill="#fff" d="M101.59 73.35c-18.232 0-33.011 14.78-33.011 33.011 0 1.417.095 2.818.268 4.188-.26-.008-.52-.02-.784-.02-15.497 0-28.059 12.562-28.059 28.059 0 15.497 12.563 28.059 28.06 28.059h108.83c12.761 0 23.107-10.346 23.107-23.108s-10.346-23.108-23.108-23.108h-.124c.03-.577.062-1.15.062-1.733 0-18.231-14.78-33.011-33.01-33.011a32.902 32.902 0 0 0-14.216 3.218c-5.83-9.34-16.197-15.556-28.018-15.556z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:svg="http://www.svg.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;">
+    <g id="Back-Circle" svg:id="Back Circle">
+        <circle id="path167" cx="512" cy="512" r="445.885" style="fill:url(#_Linear1);"/>
+    </g>
+    <g id="Redrawed">
+        <path id="path3" d="M397.85,386.172C397.85,253.144 651.813,228.957 663.906,434.546C821.122,446.64 857.402,712.696 639.719,724.79L409.943,724.79C168.074,712.696 180.167,398.266 397.85,386.172C506.691,386.172 555.065,470.827 567.159,543.387C579.252,615.948 609.172,637.451 627.626,652.229" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:54.42px;"/>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1024,1024,-1024,1024,0,0)"><stop offset="0" style="stop-color:rgb(52,92,202);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(93,71,198);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>
