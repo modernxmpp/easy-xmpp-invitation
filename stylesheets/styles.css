@@ -4,7 +4,8 @@
 	margin-bottom: 0;
 	font-weight: normal;
 	text-align: center;
-	vertical-align: middle;    text-transform: uppercase;
+	vertical-align: middle;
+	text-transform: uppercase;
 	border-right: none;
 	border-bottom: none;
 	color: #666;
@@ -13,7 +14,7 @@
 	touch-action: manipulation;
 	cursor: pointer;
 	border: 1px solid transparent;
-	white-space: nowrap;
+	/*white-space: nowrap;*/
 	padding: 6px 16px;
 	font-size: 13px;
 	line-height: 1.846;

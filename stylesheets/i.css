@@ -28,6 +28,8 @@ li {
 .btn-primary {
     background: #252e3f;
     color: #f2f2f2;
+    max-width: 80%;
+    padding: 10px 10%;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
@@ -43,6 +45,8 @@ li {
 
 .text-center {
     text-align: center;
+    text-wrap: balance;
+    word-wrap: break-word;
 }
 
 .hint {
@@ -75,7 +79,7 @@ li {
 
 .uri-button {
 	  margin-top: 20px;
-	  font-size: 1.2em;
+	  font-size: 1em;
 }
 
 .qrcode {
