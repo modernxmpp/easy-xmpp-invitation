@@ -1,4 +1,3 @@
-var supportedLocales = ['de', 'en', 'fr', 'he', 'it', 'pl', 'ro', 'ru']
 var defaultLocale = 'en'
 
 // If you use the default app list, but want to hide some, add them here

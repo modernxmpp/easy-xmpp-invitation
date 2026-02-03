@@ -6,8 +6,9 @@ let key_prefix
 
 // load i18n and perform translation
 i18n = new I18nText({ path: 'lang' })
-i18n.on(I18nText.event.LOCALE_CHANGE, function (data) {
-  document.getElementById('lang-picker').value = data.locale
+let langPicker = document.getElementById('lang-picker')
+i18n.on(I18nText.event.LOCALE_CHANGE, data => {
+  langPicker.value = data.locale
   let rtlLangs = 'ar, fa, he, ur'
   if (rtlLangs.includes(data.locale)) {
     document.querySelector('body').dir = 'rtl'
@@ -15,9 +16,15 @@ i18n.on(I18nText.event.LOCALE_CHANGE, function (data) {
   rehash()
 })
 
+// get available locales from lang picker
+let availableLocales = new Set();
+for (const option of langPicker.options) {
+	availableLocales.add(option.value);
+}
+
 let setLocale = false
 for (let preferredLocale of navigator.languages) {
-  if (supportedLocales.includes(preferredLocale)) {
+  if (availableLocales.has(preferredLocale)) {
     i18n.setLocale(preferredLocale)
     setLocale = true
     break
