@@ -284,6 +284,9 @@
 		}
 		translate_ui();
 		createQR();
+		if (display_data.xmpp_uri) {
+			window.location = 'xmpp:' + display_data.xmpp_uri;
+		}
 	}
 
 	function createQR() {
