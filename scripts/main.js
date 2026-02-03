@@ -290,8 +290,13 @@
 		display_data = load_hash();
 		let qr = document.getElementById("qrcode");
 		qr.innerText = '';
+		let text = "xmpp:" + display_data.xmpp_uri_encoded;
+		if (text.length >= 192) {
+			// https://stackoverflow.com/a/34890253/539443
+			text = text.padEnd(220);
+		}
 		const qrcode_opts = {
-			text: "xmpp:" + display_data.xmpp_uri_encoded,
+			text: text,
 			addQuietZone: true
 		};
 		new QRCode(qr, qrcode_opts);
