@@ -136,30 +136,34 @@
 		}
 	}
 
+	async function fetchClientsJson() {
+		const res = await fetch("clients.json", { cache: "no-store" });
+		if (!res.ok) {
+			throw new Error(`Failed to fetch clients.json (HTTP ${res.status})`);
+		}
+		return await res.json();
+	}
+
 	function load_clients() {
-		let request = new XMLHttpRequest();
-		request.open('GET', "clients.json");
-		request.onreadystatechange = function () {
-			if (request.readyState === 4) {
-				if (request.status === 200 || (isLocalFileRequest(url) && request.responseText.length > 0)) {
-					let loaded_clients = JSON.parse(request.responseText);
-					if(custom_apps) {
-						for(let custom_app in custom_apps) {
-							loaded_clients[custom_app] = custom_apps[custom_app];
-						}
+		fetchClientsJson()
+			.then((loaded_clients) => {
+				if (custom_apps) {
+					for (let custom_app in custom_apps) {
+						loaded_clients[custom_app] = custom_apps[custom_app];
 					}
-					if(only_apps && only_apps.length > 0) {
-						for(let id in loaded_clients) {
-							if(!only_apps.includes(id)) {
-								delete loaded_clients[id];
-							}
-						}
-					}
-					show_clients(loaded_clients);
 				}
-			}
-		};
-		request.send(null);
+				if (only_apps && only_apps.length > 0) {
+					for(let id in loaded_clients) {
+						if (!only_apps.includes(id)) {
+							delete loaded_clients[id];
+						}
+					}
+				}
+				show_clients(loaded_clients);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	}
 
 	function load_hash() {
