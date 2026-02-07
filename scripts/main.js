@@ -1,11 +1,7 @@
-(function() {
 	'use strict';
 
 	let initialized = false;
-	let i18n;
 
-	// i18n key prefix for MUC ("muc.") or 1:1 chat ("chat.")
-	let key_prefix;
 	let display_data = null;
 
 	// Return an array of platforms for this user agent, ranked from best
@@ -140,30 +136,34 @@
 		}
 	}
 
+	async function fetchClientsJson() {
+		const res = await fetch("clients.json", { cache: "no-store" });
+		if (!res.ok) {
+			throw new Error(`Failed to fetch clients.json (HTTP ${res.status})`);
+		}
+		return await res.json();
+	}
+
 	function load_clients() {
-		let request = new XMLHttpRequest();
-		request.open('GET', "clients.json");
-		request.onreadystatechange = function () {
-			if (request.readyState === 4) {
-				if (request.status === 200 || (isLocalFileRequest(url) && request.responseText.length > 0)) {
-					let loaded_clients = JSON.parse(request.responseText);
-					if(custom_apps) {
-						for(let custom_app in custom_apps) {
-							loaded_clients[custom_app] = custom_apps[custom_app];
-						}
+		fetchClientsJson()
+			.then((loaded_clients) => {
+				if (custom_apps) {
+					for (let custom_app in custom_apps) {
+						loaded_clients[custom_app] = custom_apps[custom_app];
 					}
-					if(only_apps && only_apps.length > 0) {
-						for(let id in loaded_clients) {
-							if(!only_apps.includes(id)) {
-								delete loaded_clients[id];
-							}
-						}
-					}
-					show_clients(loaded_clients);
 				}
-			}
-		};
-		request.send(null);
+				if (only_apps && only_apps.length > 0) {
+					for(let id in loaded_clients) {
+						if (!only_apps.includes(id)) {
+							delete loaded_clients[id];
+						}
+					}
+				}
+				show_clients(loaded_clients);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	}
 
 	function load_hash() {
@@ -389,29 +389,6 @@
 		if (initialized) return;
 		initialized = true;
 
-		// load i18n and perform translation
-		i18n = new I18nText({path: 'lang'});
-		i18n.once(I18nText.event.LOCALE_CHANGE, function (data) {
-			rehash();
-		});
-
-		let preferredLocale, setLocale = false;
-		for (preferredLocale of navigator.languages) {
-			if (supportedLocales.includes(preferredLocale)) {
-				i18n.setLocale(preferredLocale);
-				setLocale = true;
-				break;
-			}
-		}
-		if (!setLocale) {
-			i18n.setLocale(defaultLocale);
-		}
-		let rtlLangs = "ar, fa, he, ur";
-		if (rtlLangs.includes(navigator.language)) {
-			document.querySelector("body").dir = "rtl";
-		}
-
-
 		// functionality
 		load_clients();
 		window.addEventListener("hashchange", rehash, false);
@@ -436,4 +413,3 @@
 			load_done();
 		}
 	};
-})();
