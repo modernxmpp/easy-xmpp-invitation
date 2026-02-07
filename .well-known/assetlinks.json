@@ -25,5 +25,27 @@
         "AD:F4:E9:BF:4F:47:C5:3F:EF:F2:84:85:80:AB:04:6B:D6:94:BA:F2:EF:E0:38:7C:5F:CE:43:4B:1B:DB:FA:C3"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.yaxim.bruno",
+      "sha256_cert_fingerprints": [
+	"53:76:57:78:E1:35:BA:66:63:18:D8:ED:CD:94:DD:CC:24:17:87:B8:FC:66:A8:8D:97:A8:24:85:BC:53:E5:E8",
+        "DC:9B:55:5F:64:CD:76:5A:56:EB:62:B7:68:13:AB:25:0F:A2:E5:51:60:FF:80:40:02:80:CC:D0:E9:E6:60:35"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.yaxim.androidclient",
+      "sha256_cert_fingerprints": [
+	"53:76:57:78:E1:35:BA:66:63:18:D8:ED:CD:94:DD:CC:24:17:87:B8:FC:66:A8:8D:97:A8:24:85:BC:53:E5:E8",
+        "DC:9B:55:5F:64:CD:76:5A:56:EB:62:B7:68:13:AB:25:0F:A2:E5:51:60:FF:80:40:02:80:CC:D0:E9:E6:60:35"
+      ]
+    }
   }
 ]
