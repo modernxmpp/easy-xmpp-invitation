@@ -50,6 +50,14 @@ The following steps are needed to get started:
 1. Open `index.html` in your web browser
 1. Append `#` and the JID you want to create the invitation for to the URL
 
+## App Developers
+
+Some operating systems require to verify "ownership" or at least collaboration from the landing page in order to directly launch an (already installed) XMPP client.
+On Google, this is called [App Links](https://developer.android.com/training/app-links/configure-assetlinks) and requires storing the signing key hashes in `.well-known/assetlinks.json`.
+
+For platforms that allow coexistence of multiple XMPP apps, we accept pull requests from app authors with the respective addition, with an explanation of the keys in the commit message.
+
+
 ## TODO
 
  * I18N / Translation
