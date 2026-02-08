@@ -20,7 +20,7 @@
   "create": {
     "title": "XMPP-Link erzeugen",
     "heading": "Einen XMPP-Link erzeugen",
-    "desc": "Hier können Sie schnell einen benutzerfreundlichen XMPP-Link zum weitergeben erzeugen. Tippen oder fügen Sie dazu eine XMPP-URI oder eie JID ein.",
+    "desc": "Hier können Sie schnell einen benutzerfreundlichen XMPP-Link zum weitergeben erzeugen. Tippen oder fügen Sie dazu eine XMPP-URI oder eine JID ein.",
     "button": "Link erzeugen",
     "input": "JID oder URI:",
     "is_muc": "Gruppenchat-Einladung",
