@@ -34,5 +34,6 @@
   "action-copy": "Copia negli appunti",
   "copy-success": "Copiato!",
   "copy-failure": "Copia negli appunti non riuscita",
+  "qrcode-button": "Scansiona da un altro dispositivo",
   "":""
 }
