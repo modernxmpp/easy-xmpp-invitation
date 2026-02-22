@@ -1,0 +1,39 @@
+{
+  "chat": {
+    "title": "邀请来自 {{name}}",
+    "heading": "{{name}} 邀请您聊天",
+    "button": "将 {{name}} 添加到联系人列表",
+    "": ""
+  },
+  "muc": {
+    "title": "邀请加入 {{name}}",
+    "heading": "您受邀加入 {{name}}",
+    "button": "加入群聊 {{name}}",
+    "": ""
+  },
+  "register": {
+    "title": "邀请加入 {{name}}",
+    "heading": "您受邀在 {{name}} 上创建账号",
+    "button": "在 {{name}} 上注册",
+    "": ""
+  },
+  "create": {
+    "title": "创建 XMPP 链接",
+    "heading": "创建一个 XMPP 链接",
+    "desc": "使用此功能可快速创建易于分享的 XMPP 链接。请在下方输入或粘贴 XMPP URI 或 JID 以开始。",
+    "button": "生成链接",
+    "input": "JID 或 URI：",
+    "is_muc": "这是一个群聊",
+    "link_heading": "您的链接",
+    "": ""
+  },
+  "clients": "您需要安装 XMPP 客户端才能访问 XMPP 网络。",
+  "recommend": "以下是您平台最常用的客户端：",
+  "checkfulllist": "查看适用于其他平台和设备的<a href='https://xmpp.org/software/clients/'>完整 XMPP 客户端列表</a>。",
+  "xmppis": "XMPP 是独立于服务提供者的即时通讯协议，有多种客户端和服务器可供选择，您可自由选择并参与其中。",
+  "action-copy": "复制到剪贴板",
+  "copy-success": "已复制！",
+  "copy-failure": "无法复制到剪贴板",
+  "qrcode-button": "使用其他设备扫描",
+  "": ""
+}
