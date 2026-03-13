@@ -1,0 +1,39 @@
+{
+  "chat": {
+    "title": "Pozvánka od {{name}}",
+    "heading": "{{name}} vás pozval do chatu",
+    "button": "Přidej {{name}} do seznamu kontaktů",
+    "":""
+  },
+  "muc": {
+    "title": "Pozvánka do {{name}}",
+    "heading": "Máte pozvánku do {{name}}",
+    "button": "Vstoupit do chatovací místnosti {{name}}",
+    "":""
+  },
+  "register": {
+    "title": "Pozvánka na server {{name}}",
+    "heading": "Máte pozvánku k vytvoření uživatelského účtu na serveru {{name}}",
+    "button": "Zaregistrovat na serveru {{name}}",
+    "":""
+  },
+  "create": {
+    "title": "Vytvoř XMPP odkaz",
+    "heading": "Vytvoř XMPP odkaz",
+    "desc": "Zde můžete vytvořit pohotový a uživatelsky přístupný XMPP odkaz, který můžete sdílet s ostatními. Napište nebo vložte XMPP URI nebo JID do pole pod tímto textem.",
+    "button": "Vytvořit odkaz",
+    "input": "JID nebo URI:",
+    "is_muc": "Toto je skupinový chat",
+    "link_heading": "Váš odkaz",
+    "":""
+  },
+  "clients": "Pro přístup na XMPP síť potřebujete nainstalovat XMPP klienta.",
+  "recommend": "Nejčastějí používaní klienti pro vaši platformu:",
+  "checkfulllist": "Zobrazit <a href='https://xmpp.org/software/clients/'>kompletní seznam</a> XMPP klientů pro ostatní platformy a zařízení.",
+  "xmppis": "XMPP je způsob instantní komunikace nezávislý na poskytovateli. To umožňuje účast prostřednictvím širokého výběru serverů a klientů.",
+  "action-copy": "Zkopírovat do schránky",
+  "copy-success": "Zkopírováno!",
+  "copy-failure": "Kopírování do schránky neproběhlo úspěšně",
+  "qrcode-button": "Načíst jiným zařízením",
+  "":""
+}
