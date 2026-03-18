@@ -24,9 +24,9 @@
     "button": "Link erzeugen",
     "input": "JID oder URI:",
     "is_muc": "Gruppenchat-Einladung",
-    "link_heading": "Ihr Link",
     "":""
   },
+  "clients-heading": "XMPP-Clients",
   "clients": "Sie müssen einen XMPP-Client installieren, um auf das XMPP-Netzwerk zuzugreifen.",
   "recommend": "Wir empfehlen einen von:",
   "checkfulllist": "Sehen Sie sich die <a href='https://xmpp.org/software/clients.html'>vollständige Liste der XMPP-clients</a> für weitere Plattformen an.",

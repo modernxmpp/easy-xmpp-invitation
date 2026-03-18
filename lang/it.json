@@ -24,7 +24,6 @@
     "button": "Genera link",
     "input": "JID o URI:",
     "is_muc": "Questa è una chat di gruppo",
-    "link_heading": "Il tuo link",
     "":""
   },
   "clients": "Devi installare un client XMPP per accedere alla rete XMPP.",
