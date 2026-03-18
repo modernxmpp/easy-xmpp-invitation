@@ -48,22 +48,25 @@
 	}
 
 	function get_client_link_element(client_id, client_info, platform) {
-		let item = document.createElement("div");
-		let link = document.createElement("a");
-		let img = document.createElement("img");
-		link.setAttribute("href", client_info[platform]);
-		let logo_url = client_info.logo || ("assets/" + client_id + ".svg");
-		img.setAttribute("src", logo_url);
+		const item = document.createElement("a");
+		item.href = client_info[platform];
+		item.classList.add("box", "p-4", "client-link");
+
+		const title = document.createElement("span")
+		title.innerText = client_info.title
+
+		const img = document.createElement("img");
+		img.src = client_info.logo || ("assets/" + client_id + ".svg");
+
 		if(star_apps && star_apps.includes(client_id)) {
-			let star_el = document.createElement("div");
+			const star_el = document.createElement("div");
 			star_el.innerText = "\u2B50";
 			star_el.classList.add("star");
 			item.classList.add("starred");
-			link.append(star_el);
+			title.append(star_el);
 		}
-		link.append(img, client_info.title);
-		item.append(link);
-		item.classList.add("client-link");
+
+		item.append(img, title);
 		return item;
 	}
 
@@ -311,15 +314,6 @@
 		new QRCode(qr, qrcode_opts);
 	}
 
-	function toggleQRCode(e) {
-		const qrcode = document.getElementById("qrcode");
-		if (qrcode.classList.contains('d-none'))
-			qrcode.classList.remove('d-none');
-		else
-			qrcode.classList.add('d-none');
-		e.preventDefault();
-	}
-
 	function generate_link() {
 		let input_el = document.getElementById("uri_input");
 		let output_el = document.getElementById("generated-link");
@@ -360,7 +354,7 @@
 					copy_result_el.innerText = text;
 				});
 			}).finally(function () {
-				copy_result_el.style.visibility = "visible";
+				copy_result_el.style.display = "block";
 			});
 			e.preventDefault();
 		};
@@ -369,7 +363,7 @@
 	function initialize_uri_input() {
 		document.getElementById("generate-link-btn").addEventListener("click", function () {
 			generate_link();
-			document.getElementById("display-link").style.display = "block";
+			document.getElementById("display-link").style.display = "flex";
 		});
 		document.getElementById("uri_input").addEventListener("input", generate_link);
 		document.getElementById("uri_input").addEventListener("keyup", function(event) {
@@ -395,7 +389,6 @@
 		document.getElementById("url_in").addEventListener("focus", function(event) {
 			event.target.select();
 		});
-		document.getElementById("qrcode_button").onclick = toggleQRCode;
 		document.getElementById("copy-jid-link").addEventListener(
 			"click",
 			copy_to_clipboard(document.getElementById("copy-jid-result"),
