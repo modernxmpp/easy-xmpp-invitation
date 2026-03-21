@@ -24,9 +24,9 @@
     "button": "Generate link",
     "input": "JID or URI:",
     "is_muc": "This is a group chat",
-    "link_heading": "Your link",
     "":""
   },
+  "clients-heading": "XMPP-Clients",
   "clients": "You need to install an XMPP client to access the XMPP network.",
   "recommend": "Here are the most commonly used clients for your platform:",
   "checkfulllist": "See the <a href='https://xmpp.org/software/clients/'>full list</a> of XMPP clients for other platforms and devices.",

@@ -6,23 +6,15 @@
   <meta content="width=device-width, initial-scale=1, user-scalable=0" name="viewport">
   <title>XMPP Invitation</title>
   <link href="stylesheets/styles.css" rel="stylesheet">
-  <link href="stylesheets/i.css" rel="stylesheet">
-  <style>
-    .main {
-      padding-top: 20px;
-      max-width: 600px;
-      width: 90%;
-      margin: 0 auto;
-    }
-  </style>
+  <link href="theme.css" rel="stylesheet">
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
 <body>
-  <div class="header">
-    <div>
+  <header>
+    <div class="flex items-center gap-2">
       <label for="lang-picker">🌐 Language 文Ａ</label>
       <select id="lang-picker" onchange="i18n.setLocale(this.value)">
         <option value="de">Deutsch</option>
@@ -36,58 +28,61 @@
         <option value="zh-CN">简体中文</option>
       </select>
     </div>
-  </div>
-  <div class="main">
-    <noscript><h1>You need JavaScript to follow the invitation.</h1></noscript>
-    <div id="display-uri" style="display:none">
-      <h1 class="text-center" id="heading" data-i18n=".heading"></h1>
-      <input type="url" class="form-control text-center" id="url_in" readonly/>
-      <div class="hint text-center">
-          <a href="#" class="btn" data-i18n="action-copy" id="copy-jid-link"></a>
-            <div id="copy-jid-result"></div>
+  </header>
+  <noscript><h1>You need JavaScript to follow the invitation.</h1></noscript>
+  <div id="display-uri" style="display: none;">
+    <div class="content box mt-4 p-4 flex flex-col gap-2">
+      <h1 id="heading" data-i18n=".heading"></h1>
+      <div class="flex items-center justify-between gap-2">
+        <input type="url" id="url_in" class="w-full" readonly/>
+        <a href="#" class="btn btn-regular text-nowrap" data-i18n="action-copy" data-i18n-target="title" id="copy-jid-link">📋</a>
       </div>
-      <p class="text-center"><a class="btn btn-primary uri-button text-center" id="button" data-i18n=".button"></a></p>
+      <p id="copy-jid-result" class="text-center" style="display: none;"></p>
+      <a class="btn btn-primary truncate" id="button" data-i18n=".button"></a>
 
-      <div class="qrcode-button"><a href="#" id="qrcode_button" data-i18n="qrcode-button"></a></div>
-      <div class="qrcode d-none" id="qrcode"></div>
-
-      <p class="lead text-center" id="clients" data-i18n="clients"></p>
-      <p class="lead text-center" id="recommend" data-i18n="recommend"></p>
-
-      <p class="lead img-center text-center" id="client_list"></p>
-
-      <i>
-        <p class="hint text-center" id="checkfulllist" data-i18n="checkfulllist" data-i18n-target="innerHTML"></p>
-      </i>
+      <div class="qrcode mt-4" id="qrcode" data-i18n="qrcode-button" data-i18n-target="title"></div>
     </div>
-    <div id="enter-uri" class="text-center" style="display: none;">
-      <h1 class="text-center" id="enter-heading" data-i18n="create.heading"></h1>
+
+    <div class="p-8 mt-8 flex flex-col">
+      <h2 id="clients-heading" data-i18n="clients-heading"></h2>
+      <p id="clients" data-i18n="clients"></p>
+      <p id="recommend" data-i18n="recommend"></p>
+      <div id="client_list" class="my-4"></div>
+      <p id="checkfulllist" class="mt-4 text-center" data-i18n="checkfulllist" data-i18n-target="innerHTML"></p>
+    </div>
+  </div>
+
+  <div id="enter-uri" style="display: none;">
+    <div class="content box p-4 flex flex-col gap-2">
+      <h1 id="enter-heading" data-i18n="create.heading"></h1>
       <p data-i18n="create.desc"></p>
-      <div style="width: 90%;margin: 0 auto;">
-        <label for="uri_input" data-i18n="create.input"></label>
-        <input class="uri-input" id="uri_input" name="uri_input" type="text"/>
-        <div class="input-group">
-          <input type="checkbox" id="is_muc" name="is_muc" value="muc">
-          <label for="is_muc" data-i18n="create.is_muc"></label>
-        </div>
+      <label for="uri_input" data-i18n="create.input"></label>
+      <input id="uri_input" name="uri_input" type="text"/>
+      <div class="flex items-center gap-2">
+        <input type="checkbox" id="is_muc" name="is_muc" value="muc">
+        <label for="is_muc" data-i18n="create.is_muc"></label>
+      </div>
 
-        <button class="btn btn-primary" id="generate-link-btn" data-i18n="create.button"></button>
+      <button class="btn btn-primary" id="generate-link-btn" data-i18n="create.button"></button>
 
-        <div id="display-link" style="display:none">
-          <h4 data-i18n="create.link_heading"></h4>
-          <div class="text-center">
-            <a id="generated-link" href=""></a><br/>
-            <a href="#" class="btn" data-i18n="action-copy" id="copy-link"></a>
-            <div id="copy-result"></div>
-          </div>
+      <div id="display-link" class="flex-col items-center gap-4 mt-4" style="display: none;">
+        <div class="flex items-center gap-4">
+          <span>🔗</span>
+          <a id="generated-link" class="truncate" href=""></a>
+          <a href="#" class="btn btn-regular" data-i18n="action-copy" data-i18n-target="title" id="copy-link">📋</a>
         </div>
+        <p id="copy-result" style="display: none;"></p>
       </div>
     </div>
-    <i><p class="hint text-center" id="xmppis" data-i18n="xmppis"></p></i>
-    <p class="hint text-center" id="xmpp">
-      <a href="https://xmpp.org/"><img src="assets/xmpp.svg" alt="XMPP logo" width="60"></a>
-    </p>
   </div>
+  <footer>
+    <div class="content">
+      <p id="xmpp">
+        <a href="https://xmpp.org/"><img src="assets/xmpp.svg" alt="XMPP logo" width="60"></a>
+      </p>
+      <p id="xmppis" data-i18n="xmppis"></p>
+    </div>
+  </footer>
   <script src="scripts/i18n-text.min.js"></script>
   <script src="config.js"></script>
   <script src="scripts/main.js"></script>
