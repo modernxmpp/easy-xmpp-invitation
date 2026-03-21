@@ -24,9 +24,9 @@
     "button": "生成链接",
     "input": "JID 或 URI：",
     "is_muc": "这是一个群聊",
-    "link_heading": "您的链接",
     "": ""
   },
+  "clients-heading": "XMPP 客户端",
   "clients": "您需要安装 XMPP 客户端才能访问 XMPP 网络。",
   "recommend": "以下是您平台最常用的客户端：",
   "checkfulllist": "查看适用于其他平台和设备的<a href='https://xmpp.org/software/clients/'>完整 XMPP 客户端列表</a>。",
