@@ -273,6 +273,8 @@
 				}
 			});
 		});
+
+		setFooterLinks();
 	}
 
 	function rehash() {
@@ -377,6 +379,33 @@
 			"click",
 			copy_to_clipboard(document.getElementById("copy-result"),
 			                  () => { return document.getElementById("generated-link").href;}));
+	}
+
+	function setFooterLinks() {
+		if (typeof footerLinks === 'undefined' || Object.keys(footerLinks).length === 0) {
+			return;
+		}
+
+		Promise.all(
+			[get_translated_string("footer.imprint"), get_translated_string("footer.termsOfService")]
+		).then(([imprintString, termsOfServiceString]) => {
+			const links = [];
+			for (const [linkName, url] of Object.entries(footerLinks)) {
+				if (linkName === "imprint") {
+					links.push(`<a href="${url}">${imprintString}</a>`);
+					continue;
+				}
+				if (linkName === "termsOfService") {
+					links.push(`<a href="${url}">${termsOfServiceString}</a>`);
+					continue;
+				}
+				// Add additional custom links if available
+				links.push(`<a href="${url}">${linkName}</a>`);
+
+			}
+
+			document.getElementById("footer-links").innerHTML = links.join("&nbsp;&nbsp;&middot;&nbsp;&nbsp;");
+		})
 	}
 
 	function load_done() {

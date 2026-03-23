@@ -35,5 +35,9 @@
   "copy-success": "Copied!",
   "copy-failure": "Failed to copy to clipboard",
   "qrcode-button": "Scan with other device",
+  "footer": {
+    "imprint": "Imprint",
+    "termsOfService": "Terms of Service"
+  },
   "":""
 }

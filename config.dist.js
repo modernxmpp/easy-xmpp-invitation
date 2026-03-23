@@ -29,3 +29,10 @@ var custom_apps = {
 	}
 */
 }
+
+// Add links to your website's/your service's imprint and/or terms of service
+var footerLinks = {
+	// imprint: "https://example.org",
+	// termsOfService: "https://example.org",
+	// "Additional Link with Custom Name": "https://example.org"
+}
