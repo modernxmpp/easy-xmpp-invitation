@@ -387,20 +387,20 @@
 		}
 
 		Promise.all(
-			[get_translated_string("footer.imprint"), get_translated_string("footer.termsOfService")]
-		).then(([imprintString, termsOfServiceString]) => {
+			[get_translated_string("footer.imprint"), get_translated_string("footer.termsOfService"), get_translated_string("footer.source")]
+		).then(([imprintString, termsOfServiceString, sourceString]) => {
 			const links = [];
 			for (const [linkName, url] of Object.entries(footerLinks)) {
+				var linkDisplayName = linkName;
 				if (linkName === "imprint") {
-					links.push(`<a href="${url}">${imprintString}</a>`);
-					continue;
-				}
-				if (linkName === "termsOfService") {
-					links.push(`<a href="${url}">${termsOfServiceString}</a>`);
-					continue;
+					linkDisplayName = imprintString;
+				} else if (linkName === "termsOfService") {
+					linkDisplayName = termsOfServiceString;
+				} else if (linkDisplayName === "source") {
+					linkDisplayName = sourceString;
 				}
 				// Add additional custom links if available
-				links.push(`<a href="${url}">${linkName}</a>`);
+				links.push(`<a href="${url}">${linkDisplayName}</a>`);
 
 			}
 

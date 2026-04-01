@@ -37,7 +37,8 @@
   "qrcode-button": "Scan with other device",
   "footer": {
     "imprint": "Imprint",
-    "termsOfService": "Terms of Service"
+    "termsOfService": "Terms of Service",
+    "source": "Source code"
   },
   "":""
 }

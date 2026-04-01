@@ -35,4 +35,5 @@ var footerLinks = {
 	// imprint: "https://example.org",
 	// termsOfService: "https://example.org",
 	// "Additional Link with Custom Name": "https://example.org"
+	source: "https://github.com/modernxmpp/easy-xmpp-invitation/"
 }
