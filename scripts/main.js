@@ -336,7 +336,13 @@
 			is_muc_el.checked = uri.endsWith("?join");
 		}
 
-		let encoded_uri = uri.substr(5).split("@").map(encodeURIComponent).join("@");
+		let encoded_uri;
+		if (uri.includes("@")) {
+			encoded_uri = uri.slice(5).split("@").map(encodeURIComponent).join("@");
+		} else {
+			uri += "?register";
+			encoded_uri = encodeURIComponent(uri.slice(5));
+		}
 
 		let link = document.location.origin + document.location.pathname + "#" + encoded_uri;
 		output_el.href = link;
